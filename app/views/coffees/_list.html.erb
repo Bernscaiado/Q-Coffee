@@ -1,0 +1,4 @@
+<% @coffees.each do |coffee| %>
+  <%= link_to coffee.name, coffee_path(coffee)  %>
+  <%= coffee.brand %>
+<% end %>

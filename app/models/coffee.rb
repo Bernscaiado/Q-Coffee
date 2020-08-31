@@ -1,7 +1,7 @@
 class Coffee < ApplicationRecord
   has_many :reviews
 
-  validates %i[name origin farm brand sensory roast], presence: true
+  validates :name, :origin, :farm, :brand, :sensory, :roast, presence: true
   validates :name, uniqueness: true
 
   include PgSearch::Model
