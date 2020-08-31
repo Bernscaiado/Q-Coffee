@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(reviews_params)
     @review.coffee = @coffee
     @review.user = @user
-    if @review.save!
+    if @review.save
       redirect_to coffee_path(@coffee)
     else
       render :new
@@ -46,6 +46,6 @@ class ReviewsController < ApplicationController
   end
 
   def set_coffee
-    @coffee = Coffee.find(params[:id])
+    @coffee = Coffee.find(params[:coffee_id])
   end
 end

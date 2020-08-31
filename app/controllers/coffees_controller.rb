@@ -2,6 +2,7 @@ class CoffeesController < ApplicationController
   def show
     @coffee = Coffee.find(params[:id])
     @reviews = Review.where(coffee_id: @coffee)
+    @review = Review.new
   end
 
   def category

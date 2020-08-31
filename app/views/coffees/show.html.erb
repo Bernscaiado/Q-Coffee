@@ -1,8 +1,19 @@
-<%= @coffee.name %>
-<%= @coffee.origin %>
-<%= @coffee.brand %>
-<%= @coffee.roast %>
-<%= @coffee.sensory %>
-<%= @coffee.farm %>
+<p><%= @coffee.name %></p>
+<p><%= @coffee.origin %></p>
+<p><%= @coffee.brand %></p>
+<p><%= @coffee.roast %></p>
+<p><%= @coffee.sensory %></p>
+<p><%= @coffee.farm %></p>
 
-<% #render 'reviews/index' %>
+<%= render 'reviews/new' %>
+
+<% @reviews.each do |review|  %>
+  <p><%= review.rating %></p>
+  <p><%= review.content %></p>
+  <% if current_user.id == review.user_id %>
+    <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
+    <%= link_to 'deletar', review_path(review), method: :delete  %>
+  <% end %>
+<% end %>
+
+
