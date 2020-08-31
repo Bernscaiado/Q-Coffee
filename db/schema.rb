@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_133756) do
+ActiveRecord::Schema.define(version: 2020_08_31_135824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coffees", force: :cascade do |t|
+    t.string "name"
+    t.string "origin"
+    t.string "farm"
+    t.string "brand"
+    t.string "sensory"
+    t.string "roast"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "users_id", null: false
+    t.bigint "coffees_id", null: false
+    t.index ["coffees_id"], name: "index_reviews_on_coffees_id"
+    t.index ["users_id"], name: "index_reviews_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +45,12 @@ ActiveRecord::Schema.define(version: 2020_08_31_133756) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reviews", "coffees", column: "coffees_id"
+  add_foreign_key "reviews", "users", column: "users_id"
 end
