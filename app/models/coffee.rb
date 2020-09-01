@@ -5,11 +5,13 @@ class Coffee < ApplicationRecord
   validates :name, uniqueness: true
 
   include PgSearch::Model
-  pg_search_scope :search_by_all,
-                  against: %i[name origin farm brand sensory roast],
+  pg_search_scope :global_search,
+                  against: { name: 'A', origin: 'C', farm: 'C',
+                             brand: 'B', sensory: 'B', roast: 'D' },
                   using: {
                     tsearch: { prefix: true }
                   }
+
   pg_search_scope :category_search,
                   against: { origin: 'B', farm: 'A',
                              brand: 'D', sensory: 'A', roast: 'B' },
