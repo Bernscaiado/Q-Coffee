@@ -1,4 +1,12 @@
-<% @coffees.each do |coffee| %>
-  <%= link_to coffee.name, coffee_path(coffee)  %>
-  <%= coffee.brand %>
+<% if @coffees.empty? %>
+  <h3> Nenhum café cadastrado</h3>
+<% else %>
+  <% @coffees.each do |coffee| %>
+    <%= link_to coffee.name, coffee_path(coffee)  %>
+    <%= coffee.brand %>
+    <% if user_signed_in? && coffee.user_id == current_user.id %>
+      <%= link_to 'Editar café', edit_coffee_path(coffee) %>
+      <%= link_to 'Deletar café',coffee_path(coffee), method: :delete %>
+    <% end %>
+  <% end %>
 <% end %>
