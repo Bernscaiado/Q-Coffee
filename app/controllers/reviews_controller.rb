@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_coffee, only: [:index, :create, :update, :destroy]
+  before_action :set_coffee, only: %i[index create edit update]
+  before_action :set_review, only: %i[edit update destroy]
   def index
     @reviews = Review.where(coffee_id: @coffee)
   end
@@ -20,9 +21,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @review = Review.find(params[:id])
-  end
+  def edit; end
 
   def update
     if @review.update(reviews_params)
@@ -33,7 +32,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
     @coffee = @review.coffee
     @review.destroy
     redirect_to coffee_path(@coffee)
@@ -47,5 +45,9 @@ class ReviewsController < ApplicationController
 
   def set_coffee
     @coffee = Coffee.find(params[:coffee_id])
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 end
