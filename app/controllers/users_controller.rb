@@ -25,9 +25,11 @@ class UsersController < ApplicationController
       redirect_to users_path
     end
   end
-    
+
   def show
     @user = User.find(params[:id])
+    @coffees = Coffee.where(user_id: current_user)
+    @reviews = Review.where(user_id: current_user)
   end
 
   def edit
@@ -42,7 +44,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   private
 
   def user_params

@@ -23,7 +23,8 @@ users = [user1, user2, user3]
     sensory: Faker::Coffee.notes,
     origin: Faker::Coffee.origin,
     roast: roast_types.sample,
-    farm: Faker::Team.name)
+    farm: Faker::Team.name,
+    user: user2)
 
   3.times do
     Review.create!(
