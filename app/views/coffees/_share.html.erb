@@ -1,0 +1,52 @@
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your share button code -->
+<div class="fb-share-button"
+data-href="https://www.qcoffee.app"
+data-layout="button_count">
+</div>
+
+<a class="fab fa-twitter"
+  href="https://twitter.com/intent/tweet">
+</a>
+
+
+<a alt="Whatsapp" href="whatsapp://send" data-text="Text to share" data-href="https://www.qcoffee.app/" class="whatsapp wa_btn"><span class="ion-social-whatsapp"></span> Whatsapp</a>
+<script type="text/javascript">
+
+  waShBtn = function() {
+  if( this.isIos === true ) {
+    var b = [].slice.call( document.querySelectorAll(".wa_btn") );
+    for (var i = 0; i < b.length; i++) {
+      var t = b[i].getAttribute("data-text");
+      var u = b[i].getAttribute("data-href");
+      var o = b[i].getAttribute("href");
+      var at = "?text=" + encodeURIComponent( t );
+      if (t) {
+          at += "%20%0A";
+      }
+      if (u) {
+          at += encodeURIComponent( u );
+      } else {
+          at += encodeURIComponent( document.URL );
+      }
+      b[i].setAttribute("href", o + at);
+      b[i].setAttribute("target", "_top");
+      b[i].setAttribute("target", "_top");
+      b[i].className += ' activeWhatsapp';
+    }
+  }
+}
+
+waShBtn.prototype.isIos = ((navigator.userAgent.match(/Android|iPhone/i) && !navigator.userAgent.match(/iPod|iPad/i)) ? true : false);
+
+var theWaShBtn = new waShBtn();
+</script>
