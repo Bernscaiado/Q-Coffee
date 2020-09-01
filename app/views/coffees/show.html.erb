@@ -5,7 +5,24 @@
 <p><%= @coffee.sensory %></p>
 <p><%= @coffee.farm %></p>
 
-<%#= render 'reviews/new' %>
+<% if user_signed_in? %>
+  <% if @like.any? %>
+    <%='⭐'%></dd>
+    <p><%= link_to 'Desfavoritar Café',
+           coffee_like_path(@coffee),
+           method: :delete %></p>
+  <% else %>
+    <p><%= link_to 'Favoritar Café',
+           coffee_likes_path(@coffee),
+           method: :post %><p>
+  <% end %>
+<% end %>
+
+
+<%= render 'share' %>
+
+
+<%= render 'reviews/new' %>
 
 <% @reviews.each do |review|  %>
   <p>
@@ -16,14 +33,14 @@
       <i class="far fa-star"></i>
     <% end %>
   </p>
-
   <p>
     <%= review.content %>
+
   </p>
-  <% if current_user.id == review.user_id %>
+  <% if user_signed_in? && current_user.id == review.user_id %>
+    <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
+    <%= link_to 'deletar', review_path(review), method: :delete  %>
   <% end %>
   <%= link_to 'editar', edit_review_path(review)  %>
   <%= link_to 'deletar', review_path(review), method: :delete  %>
 <% end %>
-
-

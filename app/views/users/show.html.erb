@@ -1,5 +1,36 @@
 <div class="container">
-    <h5>Name: <%= @user.first_name %></h5>
-    <h5>About me: <%= @user.about %></h5>
+  <h5>Name: <%= @user.first_name %></h5>
+  <h5>About me: <%= @user.about %></h5>
+
+
+  <% if current_user == @user %>
     <%= link_to 'editar', edit_user_registration_path %>
+  <% end %>
+  <br>
+  Seguindo: <%= @user.following.count %>
+  <% @user.following.each do |following| %>
+    <%= following.first_name %>
+  <% end %>
+  <br>
+  Meus seguidores: <%= @user.followers.count %>:
+  <% @user.followers.each do |followers| %>
+    <%= followers.first_name %>
+  <% end %>
+
+    <% if current_user == @user %>
+      <%= link_to 'Adicionar café', new_coffee_path %>
+    <% end %>
 </div>
+
+<h3>Meus cafés</h3>
+
+<%= render 'coffees/list' %>
+
+<h3>Minhas Reviews</h3>
+
+<% @reviews.each do |review| %>
+  <%= review.content %>
+  <%= review.rating %>
+  <%= link_to 'deletar', coffee_path(coffee), method: :delete  %>
+<% end %>
+
