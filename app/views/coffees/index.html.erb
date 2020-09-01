@@ -1,0 +1,8 @@
+<h1>All coffees</h1>
+<% @coffees.each do |coffee| %>
+  <h5>
+    Name: <%= coffee.name %> |
+    Brand: <%= coffee.brand %> |
+    Sensory: <%= coffee.sensory %>
+  </h5>
+<% end %>

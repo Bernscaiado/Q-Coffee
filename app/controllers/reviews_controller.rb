@@ -1,8 +1,13 @@
 class ReviewsController < ApplicationController
-  before_action :set_coffee, only: %i[index create edit update]
-  before_action :set_review, only: %i[edit update destroy]
+  before_action :set_coffee, only: %i[index create edit update show]
+  before_action :set_review, only: %i[edit update destroy show]
+
   def index
     @reviews = Review.where(coffee_id: @coffee)
+  end
+
+  def show
+    @reviews = Review.find(params[:id])
   end
 
   def new

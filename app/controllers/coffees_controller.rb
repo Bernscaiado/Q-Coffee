@@ -1,4 +1,7 @@
 class CoffeesController < ApplicationController
+  def index
+    @coffees = Coffee.all
+  end
   def show
     @coffee = Coffee.find(params[:id])
     @reviews = Review.where(coffee_id: @coffee)
