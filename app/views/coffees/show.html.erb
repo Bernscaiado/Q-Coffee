@@ -5,6 +5,8 @@
 <p><%= @coffee.sensory %></p>
 <p><%= @coffee.farm %></p>
 
+<%= render 'share' %>
+
 <%= render 'reviews/new' %>
 
 <% @reviews.each do |review|  %>
@@ -15,5 +17,4 @@
     <%= link_to 'deletar', review_path(review), method: :delete  %>
   <% end %>
 <% end %>
-
 
