@@ -1,11 +1,47 @@
 class CoffeesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show category search]
+  before_action :set_coffee, only: %i[show edit update destroy]
+  def index
+    @coffees = Coffee.where(user: current_user)
+  end
 
   def show
-    @coffee = Coffee.find(params[:id])
     @reviews = Review.where(coffee_id: @coffee)
     @review = Review.new
     @like = Like.where(user_id: current_user, coffee_id: @coffee)
+  end
+
+  def new
+    @coffee = Coffee.new
+  end
+
+  def create
+    @coffee = Coffee.new(coffee_params)
+    @coffee.user = current_user
+    if @coffee.save
+      redirect_to coffee_path(@coffee)
+    else
+      render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if coffee.update(coffee_params)
+      redirect_to coffee_path(@coffee)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @coffee.destroy
+    redirect_to user_path(current_user)
+  end
+
+  def edit
+    @coffee = Coffee.find(params[:id])
   end
 
   def category
@@ -18,5 +54,16 @@ class CoffeesController < ApplicationController
     else
       @coffees = Coffee.all
     end
+  end
+
+  private
+
+  def coffee_params
+    params.require(:coffee).permit(:name, :brand, :origin,
+                                   :farm, :roast, :sensory)
+  end
+
+  def set_coffee
+    @coffee = Coffee.find(params[:id])
   end
 end

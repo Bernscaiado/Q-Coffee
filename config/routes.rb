@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'category', to: 'coffees#category'
   get 'search', to: 'coffees#search'
 
-  resources :coffees, only: [:index, :show] do
+  resources :coffees do
     resources :likes, only: [:create, :destroy]
     resources :reviews, only: [:create, :new, :update, :edit]
   end
