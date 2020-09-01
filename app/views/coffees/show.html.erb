@@ -7,7 +7,7 @@
 
 <% if user_signed_in? %>
   <% if @like.any? %>
-    <%='⭐'%></dd>
+    <%='☕❤️'%></dd>
     <p><%= link_to 'Desfavoritar Café',
            coffee_like_path(@coffee),
            method: :delete %></p>
@@ -41,6 +41,4 @@
     <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
     <%= link_to 'deletar', review_path(review), method: :delete  %>
   <% end %>
-  <%= link_to 'editar', edit_review_path(review)  %>
-  <%= link_to 'deletar', review_path(review), method: :delete  %>
 <% end %>
