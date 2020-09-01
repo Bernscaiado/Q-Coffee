@@ -6,14 +6,14 @@ class CoffeesController < ApplicationController
   end
 
   def category
-    @coffee = Coffee.where("origin ILIKE ? OR roast ILIKE ? OR brand ILIKE ? OR sensory ILIKE ?", "%#{params[:format]}%")
+    @coffees = Coffee.category_search(params[:query])
   end
 
   def search
     if params[:query].present?
-      @coffee = search_by_all(params[:query])
+      @coffees = Coffee.global_search(params[:query])
     else
-      @coffee = Coffee.all
+      @coffees = Coffee.all
     end
   end
 end

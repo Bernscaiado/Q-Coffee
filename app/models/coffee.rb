@@ -10,4 +10,10 @@ class Coffee < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+  pg_search_scope :category_search,
+                  against: { origin: 'B', farm: 'A',
+                             brand: 'D', sensory: 'A', roast: 'B' },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
