@@ -1,4 +1,6 @@
 class CoffeesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show category search]
+
   def show
     @coffee = Coffee.find(params[:id])
     @reviews = Review.where(coffee_id: @coffee)
