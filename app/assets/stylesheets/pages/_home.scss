@@ -1,1 +1,30 @@
-// Specific CSS for your home-page
+.container-home {
+  background-color: #ae8144;
+  color: black;
+  text-align: center;
+  padding: 50px;
+}
+
+.search-bar {
+  width: 90%;
+  height: 40px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 19px 24px 20px 52px;
+  border-style: none;
+  border-radius: 10px;
+  background-position: 16px 50%;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08);
+  font-size: 16px;
+  line-height: 24px;
+  position: center;
+  margin: 10px;
+}
+
+.container-home h1 {
+  font-weight: 700;
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+}
