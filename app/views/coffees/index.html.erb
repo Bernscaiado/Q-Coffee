@@ -1,8 +1,11 @@
 <h1>All coffees</h1>
+<hr>
 <% @coffees.each do |coffee| %>
   <h5>
-    Name: <%= coffee.name %> |
+    Name: <%= link_to coffee.name, coffee_path(coffee) %> |
     Brand: <%= coffee.brand %> |
     Sensory: <%= coffee.sensory %>
   </h5>
 <% end %>
+<hr>
+<%= link_to "Va para todas as categorias", "#" %>

@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   get 'category', to: 'coffee#category'
   get 'search', to: 'coffee#search'
   resources :coffees, only: [:index, :show] do
-    resources :reviews, only: [:create, :new, :update, :edit, :show]
+    resources :reviews, only: [:create, :new]
   end
-
+  resources :reviews, only: [:index, :destroy, :edit, :update, :show]
   resources :users, only: [:show]
-  resources :reviews, only: [:index, :destroy]
 end

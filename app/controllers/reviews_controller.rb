@@ -1,13 +1,12 @@
 class ReviewsController < ApplicationController
-  before_action :set_coffee, only: %i[index create edit update show]
+  before_action :set_coffee, only: %i[new create]
   before_action :set_review, only: %i[edit update destroy show]
 
   def index
-    @reviews = Review.where(coffee_id: @coffee)
+    @reviews = Review.where(params[:coffee_id])
   end
 
   def show
-    @reviews = Review.find(params[:id])
   end
 
   def new
@@ -26,20 +25,20 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @review.update(reviews_params)
-      redirect_to coffee_path(@coffee)
+      redirect_to coffee_path(@review.coffee)
     else
       render :edit
     end
   end
 
   def destroy
-    @coffee = @review.coffee
     @review.destroy
-    redirect_to coffee_path(@coffee)
+    redirect_to coffee_path(@review.coffee)
   end
 
   private
