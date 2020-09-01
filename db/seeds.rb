@@ -9,9 +9,9 @@ Review.delete_all
 Coffee.delete_all
 User.delete_all
 
-user1 = User.create!(first_name: 'teste', last_name: 'teste', password: '123123', email:'teste1@teste')
-user2 = User.create!(first_name: 'teste', last_name: 'teste', password: '123123', email:'teste2@teste')
-user3 = User.create!(first_name: 'teste', last_name: 'teste', password: '123123', email:'teste3@teste')
+user1 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste1@teste')
+user2 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste2@teste')
+user3 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste3@teste')
 
 roast_types = ['light', 'medium', 'dark']
 users = [user1, user2, user3]
