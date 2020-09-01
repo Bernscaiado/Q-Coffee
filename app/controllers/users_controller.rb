@@ -21,8 +21,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @coffees = Coffee.where(user_id: current_user)
-    @reviews = Review.where(user_id: current_user)
+    @coffees = Coffee.where(user_id: @user)
+    @reviews = Review.where(user_id: @user)
   end
 
   def edit
@@ -47,5 +47,4 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
 end
