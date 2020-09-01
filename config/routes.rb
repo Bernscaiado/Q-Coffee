@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :new, :update, :edit]
   end
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:index, :show, :update] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
   resources :reviews, only: [:index, :destroy]
 end
