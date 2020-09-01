@@ -1,8 +1,18 @@
 <div class="container">
-    <h5>Name: <%= @user.first_name %></h5>
-    <h5>About me: <%= @user.about %></h5>
+  <h5>Name: <%= @user.first_name %></h5>
+  <h5>About me: <%= @user.about %></h5>
 
-    <% if current_user == @user %>
-        <%= link_to 'editar', edit_user_registration_path %>
-    <% end %>
+  <% if current_user == @user %>
+    <%= link_to 'editar', edit_user_registration_path %>
+  <% end %>
+  <br>
+  Seguindo <%= @user.following.count %>:
+  <% @user.following.each do |follow| %>
+    <%= follow.first_name %>
+  <% end %>
+  <br>
+  Meus seguidores <%= @user.followers.count %>:
+  <% @user.followers.each do |follow| %>
+    <%= follow.first_name %>
+  <% end %>
 </div>
