@@ -25,6 +25,21 @@
 <%= render 'reviews/new' %>
 
 <% @reviews.each do |review|  %>
+
+  <p>
+    <% if user_signed_in? %>
+      <% if review.review_likes.any? { |rl| rl.user_id == current_user.id }%>
+        <%='⭐'%></dd>
+        <p><%= link_to 'Descurtir Review',
+               review_like_path(review),
+               method: :delete %></p>
+      <% else %>
+        <p><%= link_to 'Curtir Review',
+               review_review_likes_path(review),
+               method: :post %><p>
+      <% end %>
+    <% end %>
+
   <p>
     <% review.rating.times do %>
       <i class="fas fa-star"></i>
@@ -35,6 +50,7 @@
   </p>
   <p>
     <%= review.content %>
+
 
   </p>
   <% if user_signed_in? && current_user.id == review.user_id %>
