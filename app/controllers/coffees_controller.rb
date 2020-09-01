@@ -5,6 +5,7 @@ class CoffeesController < ApplicationController
     @coffee = Coffee.find(params[:id])
     @reviews = Review.where(coffee_id: @coffee)
     @review = Review.new
+    @like = Like.where(user_id: current_user, coffee_id: @coffee)
   end
 
   def category

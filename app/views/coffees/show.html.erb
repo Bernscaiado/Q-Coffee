@@ -5,7 +5,23 @@
 <p><%= @coffee.sensory %></p>
 <p><%= @coffee.farm %></p>
 
+
+<% if user_signed_in? %>
+  <% if @like.any? %>
+    <%='⭐'%></dd>
+    <p><%= link_to 'Desfavoritar Café',
+           coffee_like_path(@coffee),
+           method: :delete %></p>
+  <% else %>
+    <p><%= link_to 'Favoritar Café',
+           coffee_likes_path(@coffee),
+           method: :post %><p>
+  <% end %>
+<% end %>
+
+
 <%= render 'share' %>
+
 
 <%= render 'reviews/new' %>
 
