@@ -39,6 +39,7 @@
                method: :post %><p>
       <% end %>
     <% end %>
+    <p>Likes: <%= review.review_likes.count %></p>
 
   <p>
     <% review.rating.times do %>
