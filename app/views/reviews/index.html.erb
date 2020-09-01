@@ -1,5 +1,8 @@
-<% @reviews.each do |review| %>
-  <%= review.content %>
-  <%= review.rating %>
-  <%= link_to 'deletar', coffee_path(coffee), method: :delete  %>
+<div class="container">
+  <h2> All reviews </h2>
+  <% @reviews.each do |review| %>
+  <h5><%= review.content %></h5>
+  <p><%= "⭐" * review.rating %></p>
+  <%#= link_to 'deletar', coffee_path(coffee), method: :delete  %>
 <% end %>
+</div>

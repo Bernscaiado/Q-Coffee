@@ -31,6 +31,6 @@
 <% @reviews.each do |review| %>
   <%= review.content %>
   <%= review.rating %>
-  <%= link_to 'deletar', coffee_path(coffee), method: :delete  %>
+  <%= link_to 'deletar', coffee_path(review.coffee_id), method: :delete  %>
 <% end %>
 
