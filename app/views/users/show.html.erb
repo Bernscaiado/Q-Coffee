@@ -6,13 +6,13 @@
     <%= link_to 'editar', edit_user_registration_path %>
   <% end %>
   <br>
-  Seguindo <%= @user.following.count %>:
-  <% @user.following.each do |follow| %>
-    <%= follow.first_name %>
+  Seguindo: <%= @user.following.count %>
+  <% @user.following.each do |following| %>
+    <%= following.first_name %>
   <% end %>
   <br>
-  Meus seguidores <%= @user.followers.count %>:
-  <% @user.followers.each do |follow| %>
-    <%= follow.first_name %>
+  Meus seguidores: <%= @user.followers.count %>:
+  <% @user.followers.each do |followers| %>
+    <%= followers.first_name %>
   <% end %>
 </div>
