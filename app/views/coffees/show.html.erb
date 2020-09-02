@@ -56,11 +56,6 @@
     <%= review.content %>
   </p>
 
-  <% if user_signed_in? && current_user.id == review.user_id %>
-    <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
-    <%= link_to 'deletar', review_path(review), method: :delete  %>
-  <% end %>
-
    <div class="row justify-content-around">
     <p>
     <% review.rating.times do %>
@@ -85,5 +80,9 @@
     <% end %>
   </p>
    </div>
+   <% if user_signed_in? && current_user.id == review.user_id %>
+    <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
+    <%= link_to 'deletar', review_path(review), method: :delete  %>
+  <% end %>
 </div>
 <% end %>
