@@ -17,7 +17,7 @@ class CoffeesController < ApplicationController
 
   def my_coffee
     @like = Like.where(user_id: current_user)
-    @cofffes = @like.coffee
+    @coffes = @like.coffee
   end
 
   def create
