@@ -15,6 +15,11 @@ class CoffeesController < ApplicationController
     @coffee = Coffee.new
   end
 
+  def my_coffee
+    @like = Like.where(user_id: current_user)
+    @cofffes = @like.coffee
+  end
+
   def create
     @coffee = Coffee.new(coffee_params)
     @coffee.user = current_user
