@@ -1,1 +1,19 @@
-<%= render 'list' %>
+<% if @coffees.empty? %>
+  <h3> Nenhum café cadastrado</h3>
+<% else %>
+<div class="row ml-5">
+  <% @coffees.each do |coffee| %>
+    <div class="col-md-12 col-lg-6">
+      <div class="card-product my-4 mr-4">
+        <%= image_tag('https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', height: 60, width: 80, crop: :fill ) %>
+        <%= link_to coffee.name, coffee_path(coffee)  %>
+        <%= coffee.brand %>
+        <% if user_signed_in? && coffee.user_id == current_user.id %>
+          <%= link_to 'Editar café', edit_coffee_path(coffee) %>
+          <%= link_to 'Deletar café',coffee_path(coffee), method: :delete %>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

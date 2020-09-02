@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @coffees = Coffee.where(user_id: @user)
     @reviews = Review.where(user_id: @user)
+    @likes = Like.where(user_id: @user)
   end
 
   def edit
