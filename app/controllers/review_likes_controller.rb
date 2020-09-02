@@ -10,12 +10,10 @@ class ReviewLikesController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review_like = ReviewLike.search(params[:review_like_id], current_user)
+    @review_like = ReviewLike.find_by(params[:review_like_id], current_user)
     @coffee = @review.coffee
-    @review_like.each do |like|
-      like.destroy
-    end
-      flash[:notice] = 'Café desfavoritado'
-      redirect_to coffee_path(@coffee)
+    @review_like.destroy
+    flash[:notice] = 'Café desfavoritado'
+    redirect_to coffee_path(@coffee)
   end
 end

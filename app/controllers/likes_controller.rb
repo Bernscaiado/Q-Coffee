@@ -9,11 +9,9 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.search(params[:like_id], current_user)
+    @like = Like.find_by(params[:like_id], current_user)
     @coffee = Coffee.find(params[:id])
-    @like.each do |like|
-      like.destroy
-    end
+    @like.destroy
     flash[:notice] = 'Café desfavoritado'
     redirect_to coffee_path(@coffee)
   end
