@@ -1,47 +1,66 @@
-<p><%= @coffee.name %></p>
-<p><%= @coffee.origin %></p>
-<p><%= @coffee.brand %></p>
-<p><%= @coffee.roast %></p>
-<p><%= @coffee.sensory %></p>
-<p><%= @coffee.farm %></p>
+<div class="top-images">
+  <%= image_tag "field.jpeg", style:"width: 100%; height: 25%"%>
+  <div class="container">
+    <div class="bottom-image">
+      <%= image_tag "coffee.jpeg", style:"width: 40%; height: 30%; margin-left: 10px;"%>
+      <div class="rating">
+        <h3>3,9</h3>
+        <div class="row">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>R$ 24</p>
+      </div>
+    </div>
+
+    <div class="desc">
+      <ul>
+        <li><small><%= @coffee.brand %></small></li>
+        <li><strong><%= @coffee.name %></strong></li>
+        <li>Café <%= @coffee.roast %> de <%= @coffee.origin %></li>
+        <li>Notas: <%= @coffee.sensory %></li>
+        <li>Fazenda <%= @coffee.farm %></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
 
 <% if user_signed_in? %>
   <% if @like.any? %>
-    <%='☕❤️'%></dd>
-    <p><%= link_to 'Desfavoritar Café',
+    <p><%= link_to image_tag('favorite.png', style:"width: 50px;"),
            coffee_like_path(@coffee),
            method: :delete %></p>
   <% else %>
-    <p><%= link_to 'Favoritar Café',
+    <p><%= link_to image_tag('unfavorite.png', style:"width: 40px;"),
            coffee_likes_path(@coffee),
            method: :post %><p>
   <% end %>
 <% end %>
 
 
-<%= render 'share' %>
+<%= render 'share_link' %>
 
 
 <%= render 'reviews/new' %>
 
 <% @reviews.each do |review|  %>
+<div class="container">
 
-  <p>
-    <% if user_signed_in? %>
-      <% if review.review_likes.any? { |rl| rl.user_id == current_user.id }%>
-        <%='⭐'%></dd>
-        <p><%= link_to 'Descurtir Review',
-               review_like_path(review),
-               method: :delete %></p>
-      <% else %>
-        <p><%= link_to 'Curtir Review',
-               review_review_likes_path(review),
-               method: :post %><p>
-      <% end %>
-    <% end %>
-    <p>Likes: <%= review.review_likes.count %></p>
+   <p>
+    <%= review.content %>
+  </p>
 
-  <p>
+  <% if user_signed_in? && current_user.id == review.user_id %>
+    <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
+    <%= link_to 'deletar', review_path(review), method: :delete  %>
+  <% end %>
+
+   <div class="row justify-content-around">
+    <p>
     <% review.rating.times do %>
       <i class="fas fa-star"></i>
     <% end %>
@@ -49,13 +68,20 @@
       <i class="far fa-star"></i>
     <% end %>
   </p>
+
   <p>
-    <%= review.content %>
-
-
+    <% if user_signed_in? %>
+      <% if review.review_likes.any? { |rl| rl.user_id == current_user.id }%>
+        <p><%= link_to image_tag('unlike.jpg', style:"width: 50px;"),
+               review_like_path(review),
+               method: :delete %> <%= review.review_likes.count %></p>
+      <% else %>
+        <p><%= link_to image_tag('like.jpg', style:"width: 50px;"),
+               review_review_likes_path(review),
+               method: :post %><p>
+      <% end %>
+    <% end %>
   </p>
-  <% if user_signed_in? && current_user.id == review.user_id %>
-    <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
-    <%= link_to 'deletar', review_path(review), method: :delete  %>
-  <% end %>
+   </div>
+</div>
 <% end %>
