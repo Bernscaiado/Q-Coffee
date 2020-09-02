@@ -1,0 +1,8 @@
+<% if @likes.empty? %>
+  <h3> Nenhum café cadastrado</h3>
+<% else %>
+  <% @likes.each do |like| %>
+    <%= link_to like.coffee.name, coffee_path(like.coffee)  %>
+    <%= like.coffee.brand %>
+  <% end %>
+<% end %>

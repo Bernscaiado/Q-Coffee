@@ -56,6 +56,10 @@ class CoffeesController < ApplicationController
     end
   end
 
+  def liked_coffees
+    @likes = Like.where(user: current_user)
+  end
+
   private
 
   def coffee_params
