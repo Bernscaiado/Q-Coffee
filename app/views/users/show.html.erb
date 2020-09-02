@@ -10,18 +10,13 @@
     <div class="mr-3 text-center">
       <h6> <%= @user.following.count %></h6>
       <h6>Seguindo</h6>
-      <%# @user.following.each do |following| %>
-        <%#= following.first_name %>
-      <%# end %>
     </div>
     <div class="ml-3 text-center"">
       <h6> <%= @user.followers.count %></h6>
        <h6>Seguidores</h6>
-      <%# @user.followers.each do |followers| %>
-        <%#= followers.first_name %>
-      <%# end %>
     </div>
   </div>
+
   <div class="card">
     <ul class="list-group">
       <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -31,6 +26,7 @@
         <% end %>
           <%= @coffees.count%>
       </li>
+
       <li class="list-group-item d-flex justify-content-between align-items-center">
        <%= link_to root_path do %>
           <%= image_tag('elearning.png', style:"width: 30px;")%>
@@ -38,6 +34,7 @@
         <% end %>
           <%= @reviews.count%>
       </li>
+
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <%= link_to my_coffee_path do %>
           <%= image_tag('grao.png', style:"width: 30px;")%>
@@ -45,6 +42,7 @@
         <% end %>
           <%= @likes.count%>
       </li>
+
       <% if user_signed_in? && current_user == @user %>
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <%= link_to new_coffee_path do %>
@@ -52,12 +50,20 @@
             Adicionar café
           <% end %>
         </li>
+
         <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
           <%= link_to edit_user_registration_path do %>
           <%= image_tag('lapis.png', style:"width: 30px;")%>
           Editar perfil
           <% end %>
         </li>
+
+       <% if user_signed_in? && current_user == @user %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= link_to "Sair da minha conta", destroy_user_session_path, method: :delete %>
+          <% end %>
+        </li>
+
       <% end %>
     </ul>
   </div>
