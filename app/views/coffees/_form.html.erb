@@ -1,9 +1,18 @@
-<%= simple_form_for @coffee do |f| %>
-  <%= f.input :name %>
-  <%= f.input :brand %>
-  <%= f.input :origin %>
-  <%= f.input :farm %>
-  <%= f.input :sensory %>
-  <%= f.input :roast %>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="form-login">
+        <h2>Adicione um novo café</h2>
+        <%= simple_form_for @coffee do |f| %>
+          <%= f.input :name, label: 'Nome' %>
+          <%= f.input :brand, label: 'Marca' %>
+          <%= f.input :origin, label: 'Origem' %>
+          <%= f.input :farm, label: 'Produtor' %>
+          <%= f.input :sensory, label: 'Perfil Sensorial' %>
+          <%= f.input :roast, label: 'Tipo de Torra' %>
+          <%= f.button :submit, "Adicionar" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
