@@ -41,48 +41,44 @@
   </div>
 </div>
 
-
-
-
 <%= render 'share_link' %>
-
 
 <%= render 'reviews/new' %>
 
 <% @reviews.each do |review|  %>
-<div class="container">
+  <div class="container">
+    <div class="card-review">
+      <p>
+        <%= review.content %>
+      </p>
 
-   <p>
-    <%= review.content %>
-  </p>
-
-   <div class="row justify-content-around">
-    <p>
-    <% review.rating.times do %>
-      <i class="fas fa-star"></i>
-    <% end %>
-    <% (5- review.rating).times do %>
-      <i class="far fa-star"></i>
-    <% end %>
-  </p>
-
-  <p>
-    <% if user_signed_in? %>
-      <% if review.review_likes.any? { |rl| rl.user_id == current_user.id }%>
-        <p><%= link_to image_tag('like.jpg', style:"width: 50px;"),
-               review_like_path(review),
-               method: :delete %> <%= review.review_likes.count %></p>
-      <% else %>
-        <p><%= link_to image_tag('unlike.jpg', style:"width: 50px;"),
-               review_review_likes_path(review),
-               method: :post %><p>
+      <div class="row justify-content-around">
+        <p>
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5- review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+        </p>
+        <p>
+          <% if user_signed_in? %>
+            <% if review.review_likes.any? { |rl| rl.user_id == current_user.id }%>
+              <p><%= link_to image_tag('like.jpg', style:"width: 50px;"),
+                    review_like_path(review),
+                    method: :delete %> <%= review.review_likes.count %></p>
+            <% else %>
+              <p><%= link_to image_tag('unlike.jpg', style:"width: 50px;"),
+                    review_review_likes_path(review),
+                    method: :post %><p>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+      <% if user_signed_in? && current_user.id == review.user_id %>
+        <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
+        <%= link_to 'deletar', review_path(review), method: :delete  %>
       <% end %>
-    <% end %>
-  </p>
-   </div>
-   <% if user_signed_in? && current_user.id == review.user_id %>
-    <%= link_to 'editar', edit_coffee_review_path(@coffee, review)  %>
-    <%= link_to 'deletar', review_path(review), method: :delete  %>
-  <% end %>
-</div>
+    </div>
+  </div>
 <% end %>
