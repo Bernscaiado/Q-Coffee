@@ -1,36 +1,64 @@
-<div class="container">
-  <h5>Name: <%= @user.first_name %></h5>
-  <h5>About me: <%= @user.about %></h5>
-
-
-  <% if current_user == @user %>
-    <%= link_to 'editar', edit_user_registration_path %>
-  <% end %>
-  <br>
-  Seguindo: <%= @user.following.count %>
-  <% @user.following.each do |following| %>
-    <%= following.first_name %>
-  <% end %>
-  <br>
-  Meus seguidores: <%= @user.followers.count %>:
-  <% @user.followers.each do |followers| %>
-    <%= followers.first_name %>
-  <% end %>
-
+<div class="container bg-white pt-4 ">
+  <div class="row justify-content-center">
+    <img class="rounded-circle" height="80" width="80" crop="fill" src="https://images.unsplash.com/photo-1452195100486-9cc805987862?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80">
+  </div>
+  <div class="text-center">
+    <h5><%= @user.first_name %></h5>
+    <p><%= @user.about %></p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="mr-3 text-center">
+      <h6> <%= @user.following.count %></h6>
+      <h6>Seguindo</h6>
+      <%# @user.following.each do |following| %>
+        <%#= following.first_name %>
+      <%# end %>
+    </div>
+    <div class="ml-3 text-center"">
+      <h6> <%= @user.followers.count %></h6>
+       <h6>Seguidores</h6>
+      <%# @user.followers.each do |followers| %>
+        <%#= followers.first_name %>
+      <%# end %>
+    </div>
+  </div>
+  <div class="card">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to root_path do %>
+          <%= image_tag('copo-cafe.png', style:"width: 30px;")%>
+          Meus cafés
+        <% end %>
+          <%= @coffees.count%>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+       <%= link_to root_path do %>
+          <%= image_tag('elearning.png', style:"width: 30px;")%>
+          Minhas reviews
+        <% end %>
+          <%= @reviews.count%>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to root_path do %>
+          <%= image_tag('grao.png', style:"width: 30px;")%>
+          Meus favoritos
+        <% end %>
+          <%= @likes.count%>
+      </li>
     <% if current_user == @user %>
-      <%= link_to 'Adicionar café', new_coffee_path %>
+      <div class="card-footer">
+        <%= link_to new_coffee_path do %>
+          <%= image_tag('saco.png', style:"width: 30px;")%>
+          Adicionar café
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <%= link_to edit_user_registration_path do %>
+        <%= image_tag('lapis.png', style:"width: 30px;")%>
+        Editar perfil
+        <% end %>
+      </div>
     <% end %>
+    </ul>
+  </div>
 </div>
-
-<h3>Meus cafés</h3>
-
-<%= render 'coffees/list' %>
-
-<h3>Minhas Reviews</h3>
-
-<% @reviews.each do |review| %>
-  <%= review.content %>
-  <%= review.rating %>
-  <%= link_to 'deletar', coffee_path(review.coffee_id), method: :delete  %>
-<% end %>
-
