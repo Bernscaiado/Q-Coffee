@@ -1,8 +1,8 @@
 <div class="container">
-  <h3>Adicione uma review para <%= @coffee.name %></h3>
+  <h6>O que você tem a dizer sobre <%= @coffee.name %>?</h6>
   <%= simple_form_for([@coffee, @review], remote: true) do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating %>
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.input :content, label: 'Eu achei...' %>
+    <%= f.input :rating, label: 'Minha nota é' %>
+    <%= f.button :submit, 'Deixar a minha avaliação' %>
   <% end %>
 </div>
