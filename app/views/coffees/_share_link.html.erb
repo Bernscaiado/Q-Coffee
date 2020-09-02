@@ -1,28 +1,14 @@
-<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- Your share button code -->
-<div class="container">
-  <div class="row">
-    <div class="fb-share-button"
-      data-href="https://www.qcoffee.app"
-      data-layout="button_count">
-    </div>
-
-      <a class="btn btn-primary" href="https://twitter.com/intent/tweet">
-      <i class="fab fa-twitter "> Twitter</i>
-      </a>
-
-
-      <a alt="Whatsapp" href="whatsapp://send" data-text="Text to share" data-href="https://www.qcoffee.app/" class="whatsapp wa_btn fab fa-whatsapp"><span class="ion-social-whatsapp"></span></a>
-      <script type="text/javascript">
+<div class="social-icons">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://qcoffee.app" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener">
+    <%= image_tag "facebook-icon-color.svg", class:'social-icon'%>
+  </a>
+  <a href="https://twitter.com/home?status=https://qcoffee.app" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener">
+    <%= image_tag "twitter-icon-color.svg", class:'social-icon'%>
+  </a>
+  <a alt="Whatsapp" href="whatsapp://send" data-text="Text to share" data-href="https://www.qcoffee.app/" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener">
+    <%= image_tag "whatsapp.png", class:'social-icon', style:"width: 15px;"%>
+  </a>
+   <script type="text/javascript">
 
         waShBtn = function() {
         if( this.isIos === true ) {
@@ -52,6 +38,4 @@ fjs.parentNode.insertBefore(js, fjs);
 
       var theWaShBtn = new waShBtn();
     </script>
-  </div>
 </div>
-
