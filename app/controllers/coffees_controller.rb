@@ -58,7 +58,8 @@ class CoffeesController < ApplicationController
   end
 
   def liked_coffees
-    @likes = Like.where(user: current_user)
+    @user = User.find(params[:id])
+    @likes = Like.where(user: @user)
   end
 
   private

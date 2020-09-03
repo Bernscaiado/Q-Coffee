@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'category', to: 'coffees#category'
   get 'search', to: 'coffees#search'
-  get 'liked_coffees', to: 'coffees#liked_coffees'
+  get 'liked_coffees/:id', to: 'coffees#liked_coffees', as: 'liked_coffees'
 
   resources :coffees do
     resources :likes, only: [:create, :destroy]
