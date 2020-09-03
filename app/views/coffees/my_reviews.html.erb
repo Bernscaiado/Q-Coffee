@@ -1,1 +1,30 @@
-<%= render 'reviews/list' %>
+<% if @reviews.any? %>
+  <div class="container">
+    <h2> Minhas Avaliações </h2>
+    <% @reviews.each do |review| %>
+      <div class="container">
+    <div class="card-review">
+      <p>
+        <%= review.content %>
+      </p>
+
+      <div class="row justify-content-around">
+        <p>
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5- review.rating).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+        </p>
+        <p>
+          <%= review.review_likes.count %></p>
+
+        </p>
+      </div>
+
+    </div>
+  </div>
+    <% end %>
+  </div>
+<% end %>
