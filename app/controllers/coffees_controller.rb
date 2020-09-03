@@ -1,8 +1,10 @@
 class CoffeesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show category search]
   before_action :set_coffee, only: %i[show edit update destroy]
+
   def index
-    @coffees = Coffee.where(user: current_user)
+    @coffees = Coffee.all
+    #@coffees = Coffee.where(user: current_user)
   end
 
   def show
