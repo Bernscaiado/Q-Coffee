@@ -8,16 +8,22 @@ class Coffee < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :global_search,
-                  against: { name: 'A', origin: 'C', farm: 'C',
+                  against: { name: 'A', farm: 'C',
                              brand: 'B', sensory: 'B', roast: 'D' },
+                  associated_against: {
+                              origin: { name: 'A' }
+                  },
                   using: {
                     tsearch: { prefix: true }
                   }
 
   pg_search_scope :category_search,
-                  against: { origin: 'B', farm: 'A',
+                  against: { farm: 'A',
                              brand: 'D', sensory: 'A', roast: 'B' },
-                  using: {
-                    tsearch: { prefix: true }
-                  }
+                   associated_against: {
+                     origin: { name: 'A' }
+                    },
+                    using: {
+                      tsearch: { prefix: true }
+                    }
 end
