@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 import "../components/follow_button";
+import { initStarRating } from '../plugins/init_star_rating';
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -30,6 +31,9 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+  initStarRating();
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+

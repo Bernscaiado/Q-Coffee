@@ -4,7 +4,6 @@
     <% @reviews.each do |review| %>
       <h5><%= review.content %></h5>
       <p><%= "⭐" * review.rating %></p>
-    <%#= link_to 'deletar', coffee_path(coffee), method: :delete  %>
     <% end %>
   </div>
 <% end %>
