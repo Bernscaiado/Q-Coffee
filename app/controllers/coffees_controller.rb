@@ -9,6 +9,7 @@ class CoffeesController < ApplicationController
     @reviews = Review.where(coffee_id: @coffee)
     @review = Review.new
     @like = Like.where(user_id: current_user, coffee_id: @coffee)
+    average
   end
 
   def new
@@ -81,5 +82,16 @@ class CoffeesController < ApplicationController
 
   def set_coffee
     @coffee = Coffee.find(params[:id])
+  end
+
+  def average
+    @average = 0
+    @reviews = Review.where(coffee_id: @coffee)
+    @reviews.each do |review|
+      @average += review.rating
+    end
+    @average_float = @average.to_f
+    @average_float /= @reviews.count
+    @average /= @reviews.count
   end
 end

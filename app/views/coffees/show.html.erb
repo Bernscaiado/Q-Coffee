@@ -4,13 +4,14 @@
     <div class="bottom-image">
       <%= image_tag "coffee.jpg", style:"width: 40%; height: 30%; margin-left: 10px;"%>
       <div class="rating">
-        <h3>3,9</h3>
+        <h3><%= @average_float.round(2) %></h3>
         <div class="row">
+          <% @average.times do %>
           <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+        <% end %>
+        <% (5- @average).times do %>
           <i class="far fa-star"></i>
+        <% end %>
         </div>
         <p>R$ 24</p>
       </div>
