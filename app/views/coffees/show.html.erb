@@ -69,13 +69,15 @@
         <p>
           <% if user_signed_in? %>
             <% if review.review_likes.any? { |rl| rl.user_id == current_user.id }%>
-              <p><%= link_to image_tag('like.jpg', style:"width: 50px;"),
+              <p><%= link_to "",
                     review_like_path(review),
-                    method: :delete %> <%= review.review_likes.count %></p>
+                    remote: true,
+                    method: :delete, class:'fas fa-thumbs-up' %> <%= review.review_likes.count %></p>
             <% else %>
-              <p><%= link_to image_tag('unlike.jpg', style:"width: 50px;"),
+              <p><%= link_to "",
                     review_review_likes_path(review),
-                    method: :post %><p>
+                    remote: true,
+                    method: :post, class:'far fa-thumbs-up' %> <%= review.review_likes.count %><p>
             <% end %>
           <% end %>
         </p>
