@@ -1,5 +1,6 @@
 class Coffee < ApplicationRecord
   has_many :reviews, dependent: :delete_all
+  belongs_to :origin
   belongs_to :user
 
   validates :name, :origin, :farm, :brand, :sensory, :roast, presence: true

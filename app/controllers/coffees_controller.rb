@@ -1,8 +1,11 @@
 class CoffeesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show category search]
   before_action :set_coffee, only: %i[show edit update destroy]
+  before_action :coffee_settings, only: %i[new create edit update]
+
   def index
-    @coffees = Coffee.where(user: current_user)
+    @coffees = Coffee.all
+    @origin = Origin.all
   end
 
   def show
@@ -75,11 +78,19 @@ class CoffeesController < ApplicationController
   private
 
   def coffee_params
-    params.require(:coffee).permit(:name, :brand, :origin,
-                                   :farm, :roast, :sensory)
+    params.require(:coffee).permit(:name, :brand,
+                                   :farm, :roast, :sensory,
+                                   :origin_id, :taste)
   end
 
   def set_coffee
     @coffee = Coffee.find(params[:id])
+    @origin = Origin.all
+  end
+
+  def coffee_settings
+    @roast = ['clara', 'média', 'escura']
+    @sensory = ['frutado', 'achocolatado', 'floral']
+    @taste = ['doce', 'ácido', 'equilibrado', 'amargo']
   end
 end
