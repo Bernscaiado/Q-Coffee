@@ -89,11 +89,16 @@ class CoffeesController < ApplicationController
   def average
     @average = 0
     @reviews = Review.where(coffee_id: @coffee)
-    @reviews.each do |review|
-      @average += review.rating
+    if @reviews.count != 0
+      @reviews.each do |review|
+        @average += review.rating
+      end
+      @average_float = @average.to_f
+      @average_float /= @reviews.count
+      @average /= @reviews.count
+    else
+      @average = 0
+      @average_float = @average.to_f
     end
-    @average_float = @average.to_f
-    @average_float /= @reviews.count
-    @average /= @reviews.count
   end
 end
