@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:index, :destroy] do
-    resources :review_likes, only: [:create]
+    post 'toggle_review_like', to: 'review_likes#toggle'
   end
-  resources :review_likes, only: :destroy
 end

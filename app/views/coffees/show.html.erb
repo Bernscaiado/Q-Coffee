@@ -63,17 +63,12 @@
         </p>
         <p>
           <% if user_signed_in? %>
-            <% if review.review_likes.any? { |rl| rl.user_id == current_user.id }%>
-              <p><%= link_to "",
-                    review_like_path(review),
-                    remote: true,
-                    method: :delete, class:'fas fa-thumbs-up' %> <%= review.review_likes.count %></p>
-            <% else %>
-              <p><%= link_to "",
-                    review_review_likes_path(review),
-                    remote: true,
-                    method: :post, class:'far fa-thumbs-up' %> <%= review.review_likes.count %><p>
-            <% end %>
+              <% image_path =  review.review_likes.any? ? 'fas' : 'far' %>
+                <p><%= link_to "<i class='#{image_path} fa-thumbs-up'></i>".html_safe,
+                       review_toggle_review_like_path(review),
+                       remote: true,
+                       method: :post,
+                       id:"review" %> <%= review.review_likes.count %></p>
           <% end %>
         </p>
       </div>
