@@ -43,26 +43,41 @@
           <%= @likes.count%>
       </li>
 
-      <% if user_signed_in? && current_user == @user %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <%= link_to new_coffee_path do %>
-            <%= image_tag('saco.png', style:"width: 30px;")%>
-            Adicionar café
-          <% end %>
-        </li>
+      <% if user_signed_in? %>
 
-        <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
-          <%= link_to edit_user_registration_path do %>
-          <%= image_tag('lapis.png', style:"width: 30px;")%>
-          Editar perfil
-          <% end %>
-        </li>
+        <% if current_user == @user %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= link_to new_coffee_path do %>
+              <%= image_tag('saco.png', style:"width: 30px;")%>
+              Adicionar café
+            <% end %>
+          </li>
 
-       <% if user_signed_in? && current_user == @user %>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <%= link_to "Sair da minha conta", destroy_user_session_path, method: :delete %>
-          <% end %>
-        </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
+            <%= link_to edit_user_registration_path do %>
+              <%= image_tag('lapis.png', style:"width: 30px;")%>
+              Editar perfil
+            <% end %>
+          </li>
+
+         <% if current_user == @user %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= link_to "Sair da minha conta", destroy_user_session_path, method: :delete %>
+            <% end %>
+          </li>
+        <% else %>
+          <div>
+            <% if @user.followers.exists? current_user.id %>
+              <li  id="unfollow" class="list-group-item d-flex justify-content-between align-items-center">
+                <%= link_to "Deixar de seguir", unfollow_user_path, method: :post %>
+              </li>
+            <% else %>
+              <li  id="follow" class="list-group-item d-flex justify-content-between align-items-center">
+                <%= link_to "Seguir", follow_user_path, method: :post %>
+              </li>
+            <% end %>
+          </div>
+        <% end %>
 
       <% end %>
     </ul>
