@@ -45,10 +45,6 @@ class CoffeesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def edit
-    @coffee = Coffee.find(params[:id])
-  end
-
   def category
     @coffees = Coffee.category_search(params[:query])
   end
