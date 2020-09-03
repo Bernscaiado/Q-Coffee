@@ -93,6 +93,7 @@ class CoffeesController < ApplicationController
     @roast = ['clara', 'média', 'escura']
     @sensory = ['frutado', 'achocolatado', 'floral']
     @taste = ['doce', 'ácido', 'equilibrado', 'amargo']
+    @origin = Origin.all
   end
 
   def average

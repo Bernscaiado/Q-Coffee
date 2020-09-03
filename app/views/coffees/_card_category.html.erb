@@ -1,6 +1,7 @@
 <div class="container-card-category">
 
-  <div class="container-cards d-flex justify-content-around" class='row col-12'>
+  <div class="container-cards d-flex justify-content-around">
+    <div class="row" style="justify-content: space-evenly">
       <% unless @coffees.empty? %>
         <% coffees_categories = [] %>
           <% @category_roast.each do |coffee| %>
@@ -12,6 +13,7 @@
             </div>
           <% end %>
       <% end %>
+    </div> 
   </div>
 
   <div class="container-cards d-flex justify-content-around">
