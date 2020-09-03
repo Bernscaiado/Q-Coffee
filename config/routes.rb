@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'category', to: 'coffees#category'
   get 'search', to: 'coffees#search'
   get 'liked_coffees/:id', to: 'coffees#liked_coffees', as: 'liked_coffees'
+  get 'my_coffees/:id', to: 'coffees#my_coffees', as: 'my_coffees'
+  get 'my_reviews/:id', to: 'coffees#my_reviews', as: 'my_reviews'
 
   resources :coffees do
     resources :likes, only: [:create, :destroy]
