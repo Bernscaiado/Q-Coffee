@@ -1,8 +1,14 @@
 <div class="container">
-
-  <%= simple_form_for [@coffee, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit class: 'btn btn-primary' %>
-  <% end %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="form-login">
+      <h2>Editar review para <%= @coffee.name %></h2>
+      <%= simple_form_for [@coffee, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating %>
+      <%= f.button :submit, "Editar" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
 </div>
