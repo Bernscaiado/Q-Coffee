@@ -1,0 +1,49 @@
+<div class="container-card-category">
+
+  <div class="container-cards d-flex justify-content-around" class='row col-12'>
+      <% unless @coffees.empty? %>
+        <% coffees_categories = [] %>
+          <% @category_roast.each do |coffee| %>
+            <div class="card-category col-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+              <% if not coffees_categories.include?(coffee) %>
+              <p style="text-decoration: none;">Torra <%= link_to coffee, category_path(coffee), style:'text-decoration: none; color:black;' %></p>
+              <% coffees_categories << coffee %>
+              <% end %>
+            </div>
+          <% end %>
+      <% end %>
+  </div>
+
+  <div class="container-cards d-flex justify-content-around">
+    <div class="row" style="justify-content: space-evenly">
+      <% unless @coffees.empty? %>
+        <% coffees_categories = [] %>
+          <% @category_sensory.each do |coffee| %>
+            <div class="card-category col-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+              <% if not coffees_categories.include?(coffee) %>
+              <p style="text-decoration: none;">Perfil <%= link_to coffee, category_path(coffee), style:'text-decoration: none; color:black;' %></p>
+              <% coffees_categories << coffee %>
+              <% end %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container-cards d-flex justify-content-around">
+    <div class="row" style="justify-content: space-evenly">
+        <% unless @coffees.empty? %>
+          <% coffees_categories = [] %>
+            <% @category_taste.each do |coffee| %>
+              <div class="card-category col-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+                <% if not coffees_categories.include?(coffee) %>
+                <p style="text-decoration: none;">Sabor predominante <%= link_to coffee, category_path(coffee), style:'text-decoration: none; color:black;' %></p>
+                <% coffees_categories << coffee %>
+                <% end %>
+              </div>
+            <% end %>
+        <% end %>
+    </div>
+  </div>
+
+</div>
