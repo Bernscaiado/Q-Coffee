@@ -1,4 +1,4 @@
-<div class="top-images">
+<div class="top-images" id="banner">
   <%= image_tag "field.jpg", style:"width: 100%; height: 25%"%>
   <div class="container">
     <div class="bottom-image">
@@ -30,17 +30,12 @@
       </div>
 
       <% if user_signed_in? %>
-        <% if @like.any? %>
-          <p><%= link_to image_tag('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEmklEQVR4Xu3beahtYxgG8N81z5lK0Y1MkXQjksg8hMzENYvMGUJRynAzhKTM1JUhuobMMsusTBEi+UP+QKbIPPdobW3n7LPP2uvsvfa6d5/3v9P5vvd53md96/vW977vnmHEbcaIx29agOkVMOIKVHkFVsG22BjrYEUsiZ/xOT7Aq3gOP/VJ36WxDTbDegiHFubX+Ahv4Fl82QtmWQEWxv44FltTau/4BQ/garzYC6m2sVvhJOyBxUv4+KsQ4Ubcg/zd1coIsDuuwNqTOevy/6dwKt4r6WNDXIntSo7vNOzDAvOxbj66CbAsrsdBUyDRPvV3nIPL8PcEPsPnLFyARfqEewtOxI+d/E0kwGp4HBv0iUS7m7twKH4b4ztL/HbsNwDMt7ELPhvru5MACT7v7BoDINJy+Qj2RlZFbDHcX5AcFOzH2AJftAOMFSC77SvIOzhouwnHFCBzceSgAfFmIUI26H9trAA344gaiLQgDkNOmODWZTfguE4C7IAn62JR4HxbPITla8bNUf58+wrISshGUcfSrznWjnCvY9N2AXbDw01gViOHnbLiW3vAfdirRvAmQM3DgRFgKeRdzFE0SpZ7ygoRYBibX1OE3joCnFF8njaFVJ08TokA17Wfi3WiNwDrqghwZzaDBpAZBoXbIsC92GcY6A3AnBcBbi1uZw3gUzuFuRHg4uIOXjt6AwDnRIDczbMKRtFmR4A1kbvyKNrM1qfw+1h/xBR4B7NaApyNi0ZMgDNxeUuAlfAJkhEaBfsBq+Ob9ozQnCJrOwoCnIfzE2i7ALkV5r1YawFXIFWkWUUla1xOMKWnpIoW1KtxUvFb4rXWQ+6UFj+8SFKWqRrNT4slxZgkYVN7+M8mCvKEoqa3oIiQ4BNTKl3/s24BHoUUGReanx5zB65/IrGkRDbOJnvCs4vP5H7V6erWMpWng3H3RMCTCZB5eyIJxDLl6boD7IaX6k/qjCnDTWhlBMjkHYvaXY7K+cFSCU5PwTOTkS0rQPzk+Iiay03mdMj//w674uUyPHoRIP42KcrmaYtpon2FFDzeKkuuVwHiN+Wz1BDTp9MkS+0/Kf7cbEtbFQHifF2k7WVmaaTBDsxFbvsqeY2qAiSc3KaebsDdId/2Cf7TKhpPRYDgrVqshGElU94tTqi051WyqQoQ0JXxBDaqxKD6pPQF7oz0CVa2fggQ8DQ4PIrNKzPpbeJLxVH3fW/Txo/ulwDxvAweLLpIp8qr2/xsvvk67UsXaj8FCOklikpTPkQGYQ8VHau/9st5vwUIr0VxxwD6/XIfOQR/9Cv4+BmEAPGbzq+0viUB0Q9LF9nRZXp/ewUblAAtca/B8b2SGjM+zdYnd2mvnZL7QQrQIpbe4DRhVLFLkJrFwKwOAUL+XCQV3YulsfrCXiZUGVuXAOF2eioxJUmeVrTLlxxefVidAoRlWlSv7bL55gcOGZM+4lqsbgESVMrx2dVzUrRbjrek5HOE1mbDECDB7Vv0JuWbIZaCxQFF2q224AM0LAGCnZ/DZF/Isr8UL9QaeQE2TAGGEe84zGkBGvEYhkhiegUMUfxGQP8D5ICoYuy2tQAAAAAASUVORK5CYII=', style:"width: 30px;"),
-                 coffee_like_path(@coffee),
+        <% image_path =  @like.any? ? 'fas' : 'far' %>
+          <p><%= link_to "<i class='#{image_path} fa-heart'></i>".html_safe,
+                 coffee_toggle_like_path(@coffee),
                  remote: true,
-                 method: :delete %></p>
-        <% else %>
-            <p><%= link_to image_tag('data:image/png;base64,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', style:"width: 30px;"),
-                 coffee_likes_path(@coffee),
-                 remote: true,
-                 method: :post %><p>
-        <% end %>
+                 method: :post,
+                 id:'heart' %></p>
       <% end %>
     </div>
   </div>

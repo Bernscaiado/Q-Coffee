@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'my_reviews/:id', to: 'coffees#my_reviews', as: 'my_reviews'
 
   resources :coffees do
-    resources :likes, only: [:create, :destroy]
+    post 'toggle_like', to: 'likes#toggle'
     resources :reviews, only: [:create, :new, :update, :edit]
   end
 
