@@ -6,12 +6,14 @@ class CoffeesController < ApplicationController
   def index
     @coffees = Coffee.all
     @origin = Origin.all
+
   end
 
   def show
     @reviews = Review.where(coffee_id: @coffee)
     @review = Review.new
     @like = Like.where(user_id: current_user, coffee_id: @coffee)
+    average
   end
 
   def new
@@ -92,5 +94,21 @@ class CoffeesController < ApplicationController
     @roast = ['clara', 'média', 'escura']
     @sensory = ['frutado', 'achocolatado', 'floral']
     @taste = ['doce', 'ácido', 'equilibrado', 'amargo']
+  end
+
+  def average
+    @average = 0
+    @reviews = Review.where(coffee_id: @coffee)
+    if @reviews.count != 0
+      @reviews.each do |review|
+        @average += review.rating
+      end
+      @average_float = @average.to_f
+      @average_float /= @reviews.count
+      @average /= @reviews.count
+    else
+      @average = 0
+      @average_float = @average.to_f
+    end
   end
 end
