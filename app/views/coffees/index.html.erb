@@ -1,11 +1,13 @@
-<h1>All coffees</h1>
-<hr>
-<% @coffees.each do |coffee| %>
-  <h5>
-    Name: <%= link_to coffee.name, coffee_path(coffee) %> |
-    Brand: <%= coffee.brand %> |
-    Sensory: <%= coffee.sensory %>
-  </h5>
-<% end %>
-<hr>
-<%= link_to "Va para todas as categorias", "#" %>
+<div class="container-coffees">
+  <%= render 'shared/search' %>
+
+  <% @coffees.each do |coffee| %>
+    <div class="card-product mt-3">
+      <img src="https://images.unsplash.com/photo-1512372388054-a322888e67a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
+        <div class="card-product-infos">
+            <h3><%= link_to coffee.name, coffee_path(coffee) %></h3>
+            <h6><%= coffee.brand %></h6>
+        </div>
+    </div>
+  <% end %>
+</div>
