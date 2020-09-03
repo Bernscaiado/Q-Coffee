@@ -6,7 +6,7 @@
         <%= simple_form_for @coffee do |f| %>
           <%= f.input :name, label: 'Nome' %>
           <%= f.input :brand, label: 'Marca' %>
-          <%= f.input :origin_id, collection: @sensory, label: 'Origem' %>
+          <%= f.input :origin_id, collection: @origin, label: 'Origem' %>
           <%= f.input :farm, label: 'Produtor' %>
           <%= f.input :sensory, collection: @sensory, label: 'Perfil Sensorial' %>
           <%= f.input :taste, collection: @taste, label: 'Gosto' %>
