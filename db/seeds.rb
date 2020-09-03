@@ -18,17 +18,18 @@ origin.each do |orig|
   Origin.create!(name: orig)
 end
 
-user1 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste1@teste')
-user2 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste2@teste')
-user3 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste3@teste')
+User.create!(first_name: 'teste1', about: 'teste', password: '123123', email:'teste1@teste')
+User.create!(first_name: 'teste2', about: 'teste', password: '123123', email:'teste2@teste')
+User.create!(first_name: 'teste3', about: 'teste', password: '123123', email:'teste3@teste')
 
 roast = ['clara', 'média', 'escura']
-users = [user1, user2, user3]
 sensory = ['frutado', 'achocolatado', 'floral']
 taste = ['doce', 'ácido', 'equilibrado', 'amargo']
+name = ['teste1','teste2','teste3']
 
-3.times do
+5.times do
   a = Origin.find_by_name(origin.sample)
+  b = User.find_by(first_name: name.sample)
   coffee = Coffee.create!(
     name: Faker::Coffee.blend_name,
     brand: Faker::App.name,
@@ -37,13 +38,14 @@ taste = ['doce', 'ácido', 'equilibrado', 'amargo']
     origin_id: a.id,
     roast: roast.sample,
     farm: Faker::Team.name,
-    user: user2)
+    user: b)
 
-  3.times do
+  5.times do
+      b = User.find_by(first_name: name.sample)
     Review.create!(
       content: Faker::Lorem.sentence,
       rating: rand(1..5),
-      user:  user1,
+      user:  b,
       coffee: coffee)
   end
 end
