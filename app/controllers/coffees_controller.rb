@@ -45,10 +45,6 @@ class CoffeesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def edit
-    @coffee = Coffee.find(params[:id])
-  end
-
   def category
     @coffees = Coffee.category_search(params[:query])
   end
@@ -62,7 +58,8 @@ class CoffeesController < ApplicationController
   end
 
   def liked_coffees
-    @likes = Like.where(user: current_user)
+    @user = User.find(params[:id])
+    @likes = Like.where(user: @user)
   end
 
   private
