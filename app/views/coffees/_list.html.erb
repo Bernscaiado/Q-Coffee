@@ -2,11 +2,28 @@
   <h3> Nenhum café cadastrado</h3>
 <% else %>
   <% @coffees.each do |coffee| %>
-    <%= link_to coffee.name, coffee_path(coffee)  %>
-    <%= coffee.brand %>
-    <% if user_signed_in? && coffee.user_id == current_user.id %>
-      <%= link_to 'Editar café', edit_coffee_path(coffee) %>
-      <%= link_to 'Deletar café',coffee_path(coffee), method: :delete %>
+
+
+  <div class="container">
+    <div class="card-review">
+      <div class="row justify-content-between mx-1">
+      <p>
+        <%= link_to coffee.name, coffee_path(coffee), style:"color: grey;"  %>
+      </p>
+
+        <p>
+        <%= coffee.brand %>
+        </p>
+      </div>
+      <% if user_signed_in? && coffee.user_id == current_user.id %>
+        <%= link_to image_tag('edit.png', style:"width: 28px;"), edit_coffee_path(coffee)  %>
+        <%= link_to image_tag('delete.png', style:"width: 25px;"), coffee_path(coffee), method: :delete  %>
     <% end %>
+
+    </div>
+  </div>
+
+
+
   <% end %>
 <% end %>
