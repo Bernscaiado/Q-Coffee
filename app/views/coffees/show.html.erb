@@ -22,9 +22,10 @@
         <ul style="padding-left: 9px;">
           <li><small><%= @coffee.brand %></small></li>
           <li><strong><%= @coffee.name %></strong></li>
-          <li>Café <%= @coffee.roast %> de <%= @coffee.origin %></li>
+          <li>Torra: <%= @coffee.roast %> do <%= @coffee.origin.name %></li>
           <li>Notas: <%= @coffee.sensory %></li>
-          <li>Fazenda <%= @coffee.farm %></li>
+          <li>Gosto: <%= @coffee.taste %></li>
+          <li>Fazenda: <%= @coffee.farm %></li>
         </ul>
       </div>
 

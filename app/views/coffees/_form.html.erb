@@ -6,10 +6,11 @@
         <%= simple_form_for @coffee do |f| %>
           <%= f.input :name, label: 'Nome' %>
           <%= f.input :brand, label: 'Marca' %>
-          <%= f.input :origin, label: 'Origem' %>
+          <%= f.input :origin_id, collection: @sensory, label: 'Origem' %>
           <%= f.input :farm, label: 'Produtor' %>
-          <%= f.input :sensory, label: 'Perfil Sensorial' %>
-          <%= f.input :roast, label: 'Tipo de Torra' %>
+          <%= f.input :sensory, collection: @sensory, label: 'Perfil Sensorial' %>
+          <%= f.input :taste, collection: @taste, label: 'Gosto' %>
+          <%= f.input :roast, collection: @roast, label: 'Tipo de Torra' %>
           <%= f.button :submit, "Adicionar" %>
         <% end %>
       </div>

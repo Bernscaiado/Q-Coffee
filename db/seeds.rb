@@ -7,33 +7,47 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Review.delete_all
 Coffee.delete_all
+Origin.delete_all
 User.delete_all
 
-user1 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste1@teste')
-user2 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste2@teste')
-user3 = User.create!(first_name: 'teste', about: 'teste', password: '123123', email:'teste3@teste')
+origin = ['Sul de Minas', 'Mantiqueira de Minas (Denominação de Origem)', 'Matas de Minas (Montanhas de Minas)',
+          'Cerrado Mineiro (Denominação de Origem)', 'Alta Mogiana (Indicação de Procedência)', 'Chapada Diamantina',
+          'Montanhas do Espírito Santo', 'Norte Pioneiro do Paraná (Indicação de Procedência)', 'Rondônia',
+          'Ceará','Caparaó (ES)', 'Caparaó (MG)']
+origin.each do |orig|
+  Origin.create!(name: orig)
+end
 
-roast_types = ['light', 'medium', 'dark']
-users = [user1, user2, user3]
+User.create!(first_name: 'teste1', about: 'teste', password: '123123', email:'teste1@teste')
+User.create!(first_name: 'teste2', about: 'teste', password: '123123', email:'teste2@teste')
+User.create!(first_name: 'teste3', about: 'teste', password: '123123', email:'teste3@teste')
 
-3.times do
+roast = ['clara', 'média', 'escura']
+sensory = ['frutado', 'achocolatado', 'floral']
+taste = ['doce', 'ácido', 'equilibrado', 'amargo']
+name = ['teste1','teste2','teste3']
+
+5.times do
+  a = Origin.find_by_name(origin.sample)
+  b = User.find_by(first_name: name.sample)
   coffee = Coffee.create!(
     name: Faker::Coffee.blend_name,
     brand: Faker::App.name,
-    sensory: Faker::Coffee.notes,
-    origin: Faker::Coffee.origin,
-    roast: roast_types.sample,
+    sensory: sensory.sample,
+    taste: taste.sample,
+    origin_id: a.id,
+    roast: roast.sample,
     farm: Faker::Team.name,
-    user: user2)
+    user: b)
 
-  3.times do
+  5.times do
+      b = User.find_by(first_name: name.sample)
     Review.create!(
       content: Faker::Lorem.sentence,
       rating: rand(1..5),
-      user:  user1,
+      user:  b,
       coffee: coffee)
   end
-
 end
 
 
