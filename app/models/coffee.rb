@@ -3,20 +3,26 @@ class Coffee < ApplicationRecord
   belongs_to :origin
   belongs_to :user
 
-  validates :name, :origin, :farm, :brand, :sensory, :roast, presence: true
+  validates :name, :farm, :brand, :sensory, :roast, presence: true
   validates :name, uniqueness: true
 
   include PgSearch::Model
   pg_search_scope :global_search,
-                  against: { name: 'A', origin: 'C', farm: 'C',
+                  against: { name: 'A', farm: 'C',
                              brand: 'B', sensory: 'B', roast: 'D' },
+                  associated_against: {
+                    origin: { name: 'A' }
+                  },
                   using: {
                     tsearch: { prefix: true }
                   }
 
   pg_search_scope :category_search,
-                  against: { origin: 'B', farm: 'A',
+                  against: { farm: 'A',
                              brand: 'D', sensory: 'A', roast: 'B' },
+                  associated_against: {
+                    origin: { name: 'A' }
+                  },
                   using: {
                     tsearch: { prefix: true }
                   }

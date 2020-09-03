@@ -6,7 +6,6 @@ class CoffeesController < ApplicationController
   def index
     @coffees = Coffee.all
     @origin = Origin.all
-
   end
 
   def show

@@ -1,21 +1,17 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:follow, :unfollow]
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :set_user, only: %i[follow unfollow]
+  skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
     @users = User.where.not(id: current_user.id)
   end
 
   def follow
-    if current_user.follow(@user.id)
-      redirect_to user_path(@user)
-    end
+    redirect_to user_path(@user) if current_user.follow(@user.id)
   end
 
   def unfollow
-    if current_user.unfollow(@user.id)
-      redirect_to user_path(@user)
-    end
+    redirect_to user_path(@user) if current_user.unfollow(@user.id)
   end
 
   def show
