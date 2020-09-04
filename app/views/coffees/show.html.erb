@@ -2,7 +2,7 @@
   <%= image_tag "field.jpg", style:"width: 100%; height: 25%"%>
   <div class="container">
     <div class="bottom-image">
-      <%= image_tag "coffee.jpg", style:"width: 40%; height: 30%; margin-left: 10px;"%>
+      <%= image_tag "coffee-pack.png", style:"width: 50%; height: 30%; margin-left: 10px;"%>
       <div class="rating">
         <h3><%= @average_float.round(2) %></h3>
         <div class="row">
@@ -22,10 +22,11 @@
         <ul style="padding-left: 9px;">
           <li><small><%= @coffee.brand %></small></li>
           <li><strong><%= @coffee.name %></strong></li>
-          <li>Torra: <%= @coffee.roast %> do <%= @coffee.origin.name %></li>
-          <li>Notas: <%= @coffee.sensory %></li>
-          <li>Gosto: <%= @coffee.taste %></li>
+          <li>Origem: <%= @coffee.origin.name %></li>
           <li>Fazenda: <%= @coffee.farm %></li>
+          <li>Torra: <%= @coffee.roast %></li>
+          <li>Perfil sensorial: <%= @coffee.sensory %></li>
+          <li>Gosto predominante: <%= @coffee.taste %></li>
         </ul>
       </div>
 

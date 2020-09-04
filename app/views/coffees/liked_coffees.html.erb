@@ -7,7 +7,7 @@
       <% else %>
         <% @likes.each do |like| %>
           <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
-            <%= link_to like.coffee.name, coffee_path(like.coffee), style:"color: grey; &:hover: black;"  %>
+            <%= link_to like.coffee.name, coffee_path(like.coffee), style:"color: grey; &:hover: black;" %>
             <%= like.coffee.brand %>
           </li>
         <% end %>
