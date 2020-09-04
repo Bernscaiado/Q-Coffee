@@ -50,7 +50,7 @@ class CoffeesController < ApplicationController
   end
 
   def category
-    @coffees = Coffee.category_search(params[:format])
+    @coffees = Coffee.category_search(params[:category_name])
   end
 
   def search
