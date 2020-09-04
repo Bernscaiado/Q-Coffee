@@ -37,7 +37,7 @@ class CoffeesController < ApplicationController
   def edit; end
 
   def update
-    if coffee.update(coffee_params)
+    if @coffee.update(coffee_params)
       redirect_to coffee_path(@coffee)
     else
       render :edit
