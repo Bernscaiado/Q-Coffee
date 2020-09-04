@@ -10,10 +10,10 @@ Coffee.delete_all
 Origin.delete_all
 User.delete_all
 
-origin = ['Sul de Minas', 'Mantiqueira de Minas (Denominação de Origem)', 'Matas de Minas (Montanhas de Minas)',
-          'Cerrado Mineiro (Denominação de Origem)', 'Alta Mogiana (Indicação de Procedência)', 'Chapada Diamantina',
-          'Montanhas do Espírito Santo', 'Norte Pioneiro do Paraná (Indicação de Procedência)', 'Rondônia',
-          'Ceará','Caparaó (ES)', 'Caparaó (MG)']
+origin = ['Sul de Minas', 'Mantiqueira de Minas', 'Matas de Minas',
+          'Cerrado Mineiro', 'Alta Mogiana', 'Chapada Diamantina (BA)',
+          'Montanhas do Espírito Santo', 'Norte Pioneiro do Paraná', 'Rondônia',
+          'Ceará','Caparaó (ES)', 'Caparaó (MG)', 'Mococa (SP)']
 origin.each do |orig|
   Origin.create!(name: orig)
 end
