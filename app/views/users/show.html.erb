@@ -1,9 +1,10 @@
 <div class="container bg-white pt-4 ">
   <div class="row justify-content-center">
-    <img class="rounded-circle" height="80" width="80" crop="fill" src="https://images.unsplash.com/photo-1579454824457-8f6bf05a597c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80">
+    <img class="avatar" src="https://images.unsplash.com/photo-1579454824457-8f6bf05a597c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80">
   </div>
+  <br>
   <div class="text-center">
-    <h5><%= @user.first_name %></h5>
+    <h5><strong>-<%= @user.first_name %>-</strong></h5>
     <p><%= @user.about %></p>
   </div>
   <div class="row justify-content-center">

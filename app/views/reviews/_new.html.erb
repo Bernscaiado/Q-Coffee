@@ -3,6 +3,6 @@
   <%= simple_form_for([@coffee, @review], remote: true) do |f| %>
     <%= f.input :content, label: 'Eu achei...' %>
     <%= f.input :rating, collection: (1..5).to_a, label: 'Minha nota é' %>
-    <%= f.button :submit, 'Deixar a minha avaliação' %>
+    <%= f.button :submit, "Adicionar avaliação", class:"btn-ghost" %>
   <% end %>
 </div>
