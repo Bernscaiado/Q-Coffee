@@ -50,6 +50,8 @@
   <div class="container">
     <div class="card-review">
       <p>
+        <%= link_to review.user.first_name, user_path(review.user) %>
+        <br>
         <%= review.content %>
       </p>
 
