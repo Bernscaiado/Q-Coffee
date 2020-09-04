@@ -12,7 +12,7 @@
       <h6> <%= @user.following.count %></h6>
       <h6>Seguindo</h6>
     </div>
-    <div class="ml-3 text-center"">
+    <div class="ml-3 text-center">
       <h6> <%= @user.followers.count %></h6>
        <h6>Seguidores</h6>
     </div>
@@ -20,6 +20,23 @@
 
   <div class="card">
     <ul class="list-group">
+
+      <% if user_signed_in? %>
+        <% unless current_user == @user %>
+          <div>
+            <% if @user.followers.exists? current_user.id %>
+              <li  id="unfollow" class="list-group-item d-flex justify-content-between align-items-center">
+                <%= link_to "Deixar de seguir", unfollow_user_path, method: :post %>
+              </li>
+            <% else %>
+              <li  id="follow" class="list-group-item d-flex justify-content-between align-items-center">
+                <%= link_to "Seguir", follow_user_path, method: :post %>
+              </li>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <%= link_to my_coffees_path(@user) do %>
           <%= image_tag('copo-cafe.png', style:"width: 30px;")%>
@@ -66,18 +83,6 @@
             <%= link_to "Sair da minha conta", destroy_user_session_path, method: :delete %>
             <% end %>
           </li>
-        <% else %>
-          <div>
-            <% if @user.followers.exists? current_user.id %>
-              <li  id="unfollow" class="list-group-item d-flex justify-content-between align-items-center">
-                <%= link_to "Deixar de seguir", unfollow_user_path, method: :post %>
-              </li>
-            <% else %>
-              <li  id="follow" class="list-group-item d-flex justify-content-between align-items-center">
-                <%= link_to "Seguir", follow_user_path, method: :post %>
-              </li>
-            <% end %>
-          </div>
         <% end %>
 
       <% end %>
