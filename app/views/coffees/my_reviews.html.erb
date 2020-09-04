@@ -5,6 +5,9 @@
       <div class="container">
     <div class="card-review">
       <p>
+         <%= link_to review.coffee.name, coffee_path(review.coffee), style:"color: black;" %>
+      </p>
+      <p>
         <%= review.content %>
       </p>
 
@@ -18,7 +21,7 @@
         <% end %>
         </p>
         <p>
-          <%= review.review_likes.count %></p>
+          <i class='fas fa-thumbs-up'></i> <%= review.review_likes.count %></p>
 
         </p>
       </div>
