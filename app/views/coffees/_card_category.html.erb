@@ -37,7 +37,7 @@
         <% unless @coffees.empty? %>
           <% coffees_categories = [] %>
             <% @category_taste.each do |coffee| %>
-              <div class="card-category col-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1528401635478-821b5f89ff94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)">
+              <div class="card-category col-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1560864495-4d9c2a5ab341?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80)">
                 <% if not coffees_categories.include?(coffee) %>
                 <p style="text-decoration: none;">Gosto predominante <%= link_to coffee, category_path(coffee), style:'text-decoration: none; color:black;' %></p>
                 <% coffees_categories << coffee %>
