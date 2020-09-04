@@ -15,22 +15,22 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
-          <%= f.input :first_name,
+          <%= f.input :first_name, label: 'Nome',
                       hint: "leave it blank if you don't want to change it",
                       required: true,
                       input_html: { autocomplete: "first-name" } %>
-          <%= f.input :about,
+          <%= f.input :about, label: 'Sobre mim',
                       hint: "leave it blank if you don't want to change it",
                       required: false,
                       input_html: { autocomplete: "about" } %>
-          <%= f.input :password,
+          <%= f.input :password, label: 'Senha',
                       hint: "leave it blank if you don't want to change it",
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
+          <%= f.input :password_confirmation, label: 'Confirmar senha',
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
-          <%= f.input :current_password,
+          <%= f.input :current_password, label: 'Senha atual',
                       hint: "we need your current password to confirm your changes",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
@@ -41,7 +41,6 @@
         </div>
       <% end %>
 
-      <p>Cancelar minha conta</p>
 
       <p>Não está gostando? 
       <br>
