@@ -68,7 +68,7 @@
                        review_toggle_review_like_path(review),
                        remote: true,
                        method: :post,
-                       id:"review" %> <%= review.review_likes.count %></p>
+                       id:"review-#{review.id}" %> <span id="review-<%= review.id %>-count"><%= review.review_likes.count %></span></p>
           <% end %>
         </p>
       </div>
