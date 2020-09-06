@@ -1,5 +1,5 @@
 class CoffeesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[show category search]
+  skip_before_action :authenticate_user!, only: %i[index show category search]
   before_action :set_coffee, only: %i[show edit update destroy]
   before_action :coffee_settings, only: %i[new create edit update]
   before_action :edit_permit, only: :edit
