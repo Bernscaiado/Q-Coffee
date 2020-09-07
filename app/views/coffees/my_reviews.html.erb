@@ -1,6 +1,10 @@
 <% if @reviews.any? %>
-  <div class="container mt-3">
-    <h3> Minhas avaliações </h3>
+  <div class="container">
+    <% if @user == current_user %>
+      <h3>Minhas reviews</h3>
+    <% else %>
+      <h3>Reviews feitas por: <%= @user.first_name %></h3>
+    <% end %>
     <% @reviews.each do |review| %>
       <div class="container">
         <div class="card-review">

@@ -1,13 +1,21 @@
-<div class="container mt-3">
-  <% if @likes.empty? %>
-    <h3>Não existem cafés favoritados</h3>
-  <% else %>
-  <h3>Meus cafés favoritos</h3>
-    <% @likes.each do |like| %>
-      <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
-        <%= link_to like.coffee.name, coffee_path(like.coffee), style:"color: grey; &:hover: black;" %>
-        <%= like.coffee.brand %>
-      </li>
-    <% end %>
-  <% end %>
+<div class="container bg-white pt-4 ">
+  <div class="card">
+    <ul class="list-group">
+
+      <% if @likes.empty? %>
+        <% if @user == current_user %>
+          <h6>Você ainda não tem cafés favoritados</h6>
+        <% else %>
+          <h6><%= @user.first_name %> ainda não tem cafés favoritos</h6>
+        <% end %>
+      <% else %>
+        <% @likes.each do |like| %>
+          <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
+            <%= link_to like.coffee.name, coffee_path(like.coffee), style:"color: grey; &:hover: black;" %>
+            <%= like.coffee.brand %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 </div>

@@ -1,7 +1,8 @@
 class CoffeesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[show category search]
+  skip_before_action :authenticate_user!, only: %i[index show category search]
   before_action :set_coffee, only: %i[show edit update destroy]
   before_action :coffee_settings, only: %i[new create edit update]
+  before_action :edit_permit, only: :edit
 
   def index
     @coffees = Coffee.all
@@ -103,12 +104,17 @@ class CoffeesController < ApplicationController
       @reviews.each do |review|
         @average += review.rating
       end
-      @average_float = @average.to_f
-      @average_float /= @reviews.count
+      @average_float = @average.to_f / @reviews.count
       @average /= @reviews.count
     else
       @average = 0
       @average_float = @average.to_f
+    end
+  end
+
+  def edit_permit
+    unless current_user.id == @coffee.user_id
+      redirect_to coffee_path(@coffee)
     end
   end
 end
