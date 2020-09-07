@@ -1,0 +1,3 @@
+<% @photos.each do |element| %>
+<%= cl_image_tag element.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>

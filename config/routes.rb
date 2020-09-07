@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'category/:category_name', to: 'coffees#category', as: 'category'
   get 'search', to: 'coffees#search'
+  get 'ocr', to: 'photos#ocr'
+  get 'photos', to: 'photos#index'
+  post 'photos', to: 'photos#create'
   get 'liked_coffees/:id', to: 'coffees#liked_coffees', as: 'liked_coffees'
   get 'my_coffees/:id', to: 'coffees#my_coffees', as: 'my_coffees'
   get 'my_reviews/:id', to: 'coffees#my_reviews', as: 'my_reviews'
