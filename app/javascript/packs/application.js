@@ -28,6 +28,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initGeocoder } from '../plugins/init_geocoder';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,6 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initMapbox();
   initAutocomplete();
+  initGeocoder();
   // Call your functions here, e.g:
   // initSelect2();
 });
