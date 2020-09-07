@@ -14,8 +14,19 @@ console.log(mapElement)
 
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/streets-v10',
+      center: [-100, 37.8], // starting position
+      zoom: 3 // starting zoom
     });
+
+    map.addControl(
+      new mapboxgl.GeolocateControl({
+      positionOptions: {
+      enableHighAccuracy: true
+      },
+      trackUserLocation: true
+      })
+    );
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
@@ -33,7 +44,8 @@ console.log(mapElement)
       .addTo(map);
   });
     fitMapToMarkers(map, markers);
-  }
+  }  
 };
 
 export { initMapbox };
+export { fitMapToMarkers };

@@ -7,15 +7,6 @@ class CoffeesController < ApplicationController
   def index
     @coffees = Coffee.all
     @origin = Origin.all
-
-    @markers = @coffees.geocoded.map do |coffee|
-      {
-        lat: coffee.latitude,
-        lng: coffee.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { coffee: coffee }),
-        image_url: helpers.asset_url('icon.png')
-      }
-    end
   end
 
   def show
@@ -84,6 +75,18 @@ class CoffeesController < ApplicationController
   def my_coffees
     @user = User.find(params[:id])
     @coffees = Coffee.where(user: @user)
+  end
+
+  def coffee_map
+    @coffees = Coffee.all
+    @markers = @coffees.geocoded.map do |coffee|
+      {
+        lat: coffee.latitude,
+        lng: coffee.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { coffee: coffee }),
+        image_url: helpers.asset_url('icon.png')
+      }
+    end
   end
 
   private
