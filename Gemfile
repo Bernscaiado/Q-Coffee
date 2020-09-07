@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'geocoder'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
@@ -27,10 +28,16 @@ gem 'redis', '~> 4.0'
 gem 'pg_search', '~> 2.3.0'
 gem 'faker'
 
+gem 'cloudinary', '~> 1.16.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'nokogiri'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

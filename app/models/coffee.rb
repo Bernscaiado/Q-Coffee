@@ -3,6 +3,9 @@ class Coffee < ApplicationRecord
   belongs_to :origin
   belongs_to :user
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   validates :name, :farm, :brand, :sensory, :roast, :taste, presence: true
   validates :name, uniqueness: true
 

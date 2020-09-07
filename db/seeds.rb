@@ -59,5 +59,3 @@ b = User.find_by(first_name: name.sample)
       coffee: coffee)
   end
 end
-
-
