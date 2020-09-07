@@ -1,6 +1,8 @@
+<div class="container mt-3">
 <% if @coffees.empty? %>
-  <h5> Nenhum café cadastrado</h5>
+  <h3> Não existem cafés cadastrados</h3>
 <% else %>
+  <h3>Cafés cadastrados</h3>
   <% @coffees.each do |coffee| %>
 
 
@@ -27,3 +29,4 @@
 
   <% end %>
 <% end %>
+</div>
