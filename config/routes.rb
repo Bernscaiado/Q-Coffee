@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'liked_coffees/:id', to: 'coffees#liked_coffees', as: 'liked_coffees'
   get 'my_coffees/:id', to: 'coffees#my_coffees', as: 'my_coffees'
   get 'my_reviews/:id', to: 'coffees#my_reviews', as: 'my_reviews'
+  get 'roast', to: 'pages#roast'
+  get 'sensory', to: 'pages#sensory'
+  get 'taste', to: 'pages#taste'
 
   resources :coffees do
     post 'toggle_like', to: 'likes#toggle'
