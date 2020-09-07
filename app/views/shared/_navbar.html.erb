@@ -21,6 +21,12 @@
     <%= link_to image_tag('coffee.png', style:"width: 30px;"), coffees_path %>
     </a>
   </li>
+    </li>
+    <li class="nav-item">
+    <a class="navbar-brand" href="#">
+    <%= link_to image_tag('search.png', style:"width: 30px;"), coffee_map_path %>
+    </a>
+  </li>
   <li class="nav-item">
     <a class="navbar-brand" href="#">
     <% if current_user.present? %>
