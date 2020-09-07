@@ -8,6 +8,13 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new
+    @photo = Photo.create(photo_params)
+    redirect_to photos_path
+  end
+
+  private
+
+  def photo_params
+    params.require(:photo).permit(:photo)
   end
 end
