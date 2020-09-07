@@ -11,7 +11,9 @@
           <%= f.input :sensory, collection: @sensory, label: 'Perfil Sensorial' %>
           <%= f.input :taste, collection: @taste, label: 'Gosto' %>
           <%= f.input :roast, collection: @roast, label: 'Tipo de Torra' %>
-          <%= f.input :address, label: 'Onde encontrar' %>
+          <%#= f.input :address, label: 'Onde encontrar', input_html: {data: { 'mapbox-api-key': ENV['MAPBOX_API_KEY'] }} %>
+          <div id='coffee_address' data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
           <%= f.button :submit, "Adicionar café", class:"btn-ghost" %>
         <% end %>
       </div>
