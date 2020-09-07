@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Like.delete_all
+ReviewLike.delete_all
 Review.delete_all
 Coffee.delete_all
 Origin.delete_all
@@ -18,20 +20,29 @@ origin.each do |orig|
   Origin.create!(name: orig)
 end
 
-User.create!(first_name: 'teste1', about: 'teste', password: '123123', email:'teste1@teste')
-User.create!(first_name: 'teste2', about: 'teste', password: '123123', email:'teste2@teste')
-User.create!(first_name: 'teste3', about: 'teste', password: '123123', email:'teste3@teste')
+User.create!(first_name: 'Rafael', about: 'Trabalho como barista minha vida é o café', password: '123123', email:'teste1@teste')
+User.create!(first_name: 'Vini', about: 'Curto um café brabo, só tomo pelé', password: '123123', email:'teste2@teste')
+User.create!(first_name: 'Marina', about: 'Buscando cafés produzidos por mulheres', password: '123123', email:'teste3@teste')
+User.create!(first_name: 'Ana', about: 'Adoro viajar, conhecer sabores e lugares novos', password: '123123', email:'teste4@teste')
+User.create!(first_name: 'Letícia', about: 'O café me ajuda a cobrir Ralis pelo mundo', password: '123123', email:'teste5@teste')
+User.create!(first_name: 'Fabi', about: 'Pau no cu do Melitta, eu gosto é de café bom', password: '123123', email:'teste6@teste')
 
 roast = ['clara', 'média', 'escura']
 sensory = ['frutado', 'achocolatado', 'floral']
 taste = ['doce', 'ácido', 'equilibrado', 'amargo']
-name = ['teste1','teste2','teste3']
+name = ['Rafael','Vini','Marina', 'Ana', 'Letícia', 'Fabi']
+review = ['Muito bom', 'Café sensacional', 'Não gostei, muito amargo',
+          'Muito fraco', 'Este me lembrou notas de frutas vermelhas pela manhã',
+         'Péssimo', 'Gostei muito', 'Este café tem notas de castanha do Pará e é encorpado']
+nome_cafe = ['Melitta sabor da fazenda', 'Honey da bahia', 'Santa Mônica',
+             'Café do Centro', 'Spot Coffee', 'Café do Joselino', 'Café Capadocia',
+             'Café do Pato Rei', 'Fuckoffee']
 
-5.times do
+b = User.find_by(first_name: name.sample)
+  nome_cafe.each do |nome|
   a = Origin.find_by_name(origin.sample)
-  b = User.find_by(first_name: name.sample)
   coffee = Coffee.create!(
-    name: Faker::Coffee.blend_name,
+    name: nome,
     brand: Faker::App.name,
     sensory: sensory.sample,
     taste: taste.sample,
@@ -39,13 +50,12 @@ name = ['teste1','teste2','teste3']
     roast: roast.sample,
     farm: Faker::Team.name,
     user: b)
-
   5.times do
       b = User.find_by(first_name: name.sample)
     Review.create!(
-      content: Faker::Lorem.sentence,
+      content: review.sample,
       rating: rand(1..5),
-      user:  b,
+      user: b,
       coffee: coffee)
   end
 end

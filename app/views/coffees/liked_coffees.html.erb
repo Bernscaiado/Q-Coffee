@@ -3,7 +3,11 @@
     <ul class="list-group">
 
       <% if @likes.empty? %>
-        <h6>Você ainda não tem cafés favoritados</h6>
+        <% if @user == current_user %>
+          <h6>Você ainda não tem cafés favoritados</h6>
+        <% else %>
+          <h6><%= @user.first_name %> ainda não tem cafés favoritos</h6>
+        <% end %>
       <% else %>
         <% @likes.each do |like| %>
           <li class="list-group-item d-flex justify-content-between align-items-center mb-3">

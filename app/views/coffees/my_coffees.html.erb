@@ -1,1 +1,6 @@
+<% if @user == current_user %>
+  <h3>Meus cafés</h3>
+<% else %>
+  <h3>Cafés cadastrados por: <%= @user.first_name %></h3>
+<% end %>
 <%= render 'list' %>

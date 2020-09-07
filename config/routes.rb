@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get 'category', to: 'coffees#category'
+  get 'category/:category_name', to: 'coffees#category', as: 'category'
   get 'search', to: 'coffees#search'
   get 'liked_coffees/:id', to: 'coffees#liked_coffees', as: 'liked_coffees'
   get 'my_coffees/:id', to: 'coffees#my_coffees', as: 'my_coffees'
