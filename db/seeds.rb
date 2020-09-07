@@ -38,9 +38,9 @@ nome_cafe = ['Melitta sabor da fazenda', 'Honey da bahia', 'Santa Mônica',
              'Café do Centro', 'Spot Coffee', 'Café do Joselino', 'Café Capadocia',
              'Café do Pato Rei', 'Fuckoffee']
 
-a = Origin.find_by_name(origin.sample)
 b = User.find_by(first_name: name.sample)
   nome_cafe.each do |nome|
+  a = Origin.find_by_name(origin.sample)
   coffee = Coffee.create!(
     name: nome,
     brand: Faker::App.name,
