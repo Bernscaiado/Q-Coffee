@@ -9,7 +9,8 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create(photo_params)
-    redirect_to photos_path
+    pic = Photo.ocr_search(@photo)
+    redirect_to category_path(pic)
   end
 
   private
