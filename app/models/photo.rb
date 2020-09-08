@@ -5,9 +5,10 @@ class Photo < ApplicationRecord
   has_one_attached :photo
 
   def self.detect_text(file_name)
-
+    puts file_name
+    puts "----------------------------------------------------------------------------------------"
     image_annotator = Google::Cloud::Vision.image_annotator
-    print file_name
+    puts file_name
     response = image_annotator.text_detection(
       image: file_name,
       max_results: 1 # optional, defaults to 10
