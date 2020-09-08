@@ -17,10 +17,10 @@
           <h3><%= @average_float.round(2) %></h3>
           <div class="row">
             <% @average.times do %>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star", style="color: #fece02;"></i>
           <% end %>
           <% (5- @average).times do %>
-            <i class="far fa-star"></i>
+            <i class="far fa-star", style="color: #fece02;" ></i>
           <% end %>
         <% end %>
         </div>
@@ -30,7 +30,7 @@
   <div class="container">
     
 
-    <div class="desc d-flex row">
+    <div class="coffee-info desc d-flex row">
       <div class="col-10">
         <ul style="padding-left: 9px;">
           <li><small><%= @coffee.brand %></small></li>
@@ -72,10 +72,10 @@
       <div class="row justify-content-around">
         <p>
         <% review.rating.times do %>
-          <i class="fas fa-star"></i>
+          <i class="fas fa-star", style="color: #fece02;"></i>
         <% end %>
         <% (5- review.rating).times do %>
-          <i class="far fa-star"></i>
+          <i class="far fa-star", style="color: #fece02;"></i>
         <% end %>
         </p>
         <p>
