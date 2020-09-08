@@ -1,6 +1,11 @@
 .card-review {
   background: #ebe9e9a6;
-  padding: 10px 20px;
+  padding: 20px 20px;
   margin-top: 20px;
-  border-radius: 10px 50px 10px 10px;
+}
+
+.card-review a {
+  color: black!important;
+  font-weight: bold;
+  font-size: 15px;
 }

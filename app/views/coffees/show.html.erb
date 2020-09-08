@@ -14,7 +14,7 @@
         <% if @average == 0 %>
           <h5>Café ainda não avaliado</h5>
         <% else %>
-          <h3><%= @average_float.round(2) %></h3>
+          <h3 style="margin-left: 10px;"><strong><%= @average_float.round(2) %></strong></h3>
           <div class="row">
             <% @average.times do %>
             <i class="fas fa-star", style="color: #fece02;"></i>
@@ -24,7 +24,7 @@
           <% end %>
         <% end %>
         </div>
-        <p>R$ 24</p>
+        <h5 style="margin: 10px 0px;">R$ 24</h5>
       </div>
     </div>
   <div class="container">
@@ -61,7 +61,6 @@
 <%= render 'reviews/new' %>
 
 <% @reviews.each do |review|  %>
-  <div class="container">
     <div class="card-review">
       <p>
         <%= link_to review.user.first_name, user_path(review.user) %>
@@ -69,7 +68,7 @@
         <%= review.content %>
       </p>
 
-      <div class="row justify-content-around">
+      <div class="row", style="margin: 0px;">
         <p>
         <% review.rating.times do %>
           <i class="fas fa-star", style="color: #fece02;"></i>
@@ -90,9 +89,8 @@
         </p>
       </div>
       <% if user_signed_in? && current_user.id == review.user_id %>
-        <%= link_to image_tag('edit.png', style:"width: 28px;"), edit_coffee_review_path(@coffee, review)  %>
-        <%= link_to image_tag('delete.png', style:"width: 25px;"), review_path(review), method: :delete  %>
+        <%= link_to image_tag('edit.png', style:"width: 20px;"), edit_coffee_review_path(@coffee, review)  %>
+        <%= link_to image_tag('delete.png', style:"width: 20px;"), review_path(review), method: :delete  %>
       <% end %>
     </div>
-  </div>
 <% end %>
