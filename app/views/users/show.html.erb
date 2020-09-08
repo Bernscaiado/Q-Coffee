@@ -1,4 +1,10 @@
-<div class="container bg-white pt-4 ">
+<div class="jumbotron" style= "background-image: url(<%= image_path('coffee22.jpg') %>); height: 200px; background-size: cover">
+</div>
+
+
+<div id="profile_ps">
+  <div id="nova">
+
   <div class="row justify-content-center">
     <img class="avatar" src="https://images.unsplash.com/photo-1579454824457-8f6bf05a597c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80">
   </div>
@@ -37,7 +43,7 @@
         <% end %>
       <% end %>
 
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li  id="stresse" class="list-group-item d-flex justify-content-between align-items-center">
         <%= link_to my_coffees_path(@user) do %>
           <%= image_tag('copo-cafe.png', style:"width: 30px;")%>
           Meus cafés
@@ -45,7 +51,7 @@
           <%= @coffees.count%>
       </li>
 
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li  id="stresse2" class="list-group-item d-flex justify-content-between align-items-center">
        <%= link_to my_reviews_path(@user) do %>
           <%= image_tag('elearning.png', style:"width: 30px;")%>
           Minhas reviews
@@ -53,7 +59,7 @@
           <%= @reviews.count%>
       </li>
 
-      <li class="list-group-item d-flex justify-content-between align-items-center">
+      <li  id="stresse3" class="list-group-item d-flex justify-content-between align-items-center">
         <%= link_to liked_coffees_path(@user) do %>
           <%= image_tag('grao.png', style:"width: 30px;")%>
           Meus favoritos
@@ -71,7 +77,7 @@
             <% end %>
           </li>
 
-          <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
             <%= link_to edit_user_registration_path do %>
               <%= image_tag('lapis.png', style:"width: 30px;")%>
               Editar perfil
@@ -87,5 +93,6 @@
 
       <% end %>
     </ul>
+  </div>
   </div>
 </div>
