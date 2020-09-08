@@ -10,7 +10,8 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create(photo_params)
-    pic = Photo.detect_text(@photo)
+    file_name = view_context.cl_image_path(@photo.photo.key)
+    pic = Photo.detect_text(file_name)
     redirect_to photo_search_path(pic)
   end
 
