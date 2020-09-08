@@ -1,21 +1,25 @@
 <%= render 'banner' %>
 
-<h4>Pesquise por categoria</h4>
+<div class="container-home">
+  <h4><strong>Pesquise por categoria</strong></h4>
+</div>
 
 <div class= "container-cards-main my-0">
   <%= link_to roast_path do %>
     <div class="card-category-main">
-      <p> Torra </p>
+    <%= image_tag('fire.png', style:"width: 70px;") %>
     </div>
   <% end %>
+
   <%= link_to sensory_path do %>
     <div class="card-category-main">
       <p> Perfil sensorial </p>
     </div>
   <% end %>
+
   <%= link_to taste_path do %>
     <div class="card-category-main">
-      <p> Gosto </p>
+      <%= image_tag('taste.png', style:"width: 100px;") %>
     </div>
   <% end %>
 </div>

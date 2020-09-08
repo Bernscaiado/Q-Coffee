@@ -1,6 +1,6 @@
 .card-category-main {
   height: 20vh;
-  background-color: #d59638;
+  background-color: rgb(213, 150, 56);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,12 +8,12 @@
   font-size: 20px;
   border-radius: 10px 10px 10px 10px;
   margin: 5px 0px;
-  width: 18vh;
+  // width: 18vh;
+  width: 120px;
 }
 
 .container-cards-main {
   text-align: center;
-  margin-bottom: 7vh;
   display: flex;
   justify-content: space-between;
 }
