@@ -18,6 +18,7 @@ class Photo < ApplicationRecord
       res.text_annotations.each do |text|
         test << text.description
       end
+      puts response
       return test[0].split("\n").first
     end
   end
