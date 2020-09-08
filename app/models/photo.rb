@@ -20,7 +20,11 @@ class Photo < ApplicationRecord
       res.text_annotations.each do |text|
         test << text.description
       end
-      return test[0].split("\n").first
+      if test.nil?
+        return test[0].split("\n").first
+      else
+        return 'cafe'
+      end
     end
   end
 end
