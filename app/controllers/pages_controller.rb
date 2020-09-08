@@ -2,7 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_coffee, only: [:roast, :sensory, :taste]
 
-  def home; end
+  def home
+    @user = current_user
+  end
 
   def roast
     @category_roast = Coffee.all.pluck(:roast).uniq
