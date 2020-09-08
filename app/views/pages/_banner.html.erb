@@ -1,6 +1,10 @@
 <div class="banner mt-0">
   <div class="container mt-0">
-  <h2>Olá, <%= @user.first_name %></h2>
+  <% if user_signed_in?  %>
+    <h2>Olá, <%= @user.first_name %></h2>
+  <% else %>
+    <h3>ALTERAR</h3>
+  <% end  %>
   <br>
   <br>
   <br>
