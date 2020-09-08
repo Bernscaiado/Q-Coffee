@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'search', to: 'coffees#search'
   get 'ocr', to: 'photos#ocr'
   get 'photos', to: 'photos#index'
+  get 'photo_search_path/:pic', to: 'photos#photo_search', as: 'photo_search'
   post 'photos', to: 'photos#create'
   get 'liked_coffees/:id', to: 'coffees#liked_coffees', as: 'liked_coffees'
   get 'my_coffees/:id', to: 'coffees#my_coffees', as: 'my_coffees'

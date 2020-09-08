@@ -34,7 +34,7 @@ name = ['Rafael','Vini','Marina', 'Ana', 'Letícia', 'Fabi']
 review = ['Muito bom', 'Café sensacional', 'Não gostei, muito amargo',
           'Muito fraco', 'Este me lembrou notas de frutas vermelhas pela manhã',
          'Péssimo', 'Gostei muito', 'Este café tem notas de castanha do Pará e é encorpado']
-nome_cafe = ['Melitta sabor da fazenda', 'Honey da bahia', 'Santa Mônica',
+nome_cafe = ['Melita sabor da fazenda', 'Honey da bahia', 'Santa Mônica',
              'Café do Centro', 'Spot Coffee', 'Café do Joselino', 'Café Capadocia',
              'Café do Pato Rei', 'Fuckoffee']
 
