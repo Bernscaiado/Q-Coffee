@@ -1,9 +1,3 @@
-#profile_ps {
-  top: 100px;
-  position: absolute;
-  margin-bottom: 100px;
-}
-  
 #profile {
   background-color: white;
   border-radius: 40px;
@@ -17,4 +11,10 @@
 .borderless {
   border: none;
   background-color: #ebe9e9a6;
+}
+
+.container-profile {
+  top: 100px;
+  position: absolute;
+  margin-bottom: 100px;
 }

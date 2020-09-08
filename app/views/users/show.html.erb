@@ -1,11 +1,13 @@
+
+
 <div style= "background-image: url(<%= image_path('coffee22.jpg') %>); height: 200px; background-size: cover", class="container">
 </div>
 
+<div class="container-profile col-xs-12">
 
-<div id="profile_ps">
 
   <div id="profile">
-    <div class="row justify-content-center">
+    <div class="d-flex justify-content-center">
       <img class="avatar" src="https://images.unsplash.com/photo-1579454824457-8f6bf05a597c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80">
     </div>
     <br>
@@ -13,7 +15,7 @@
       <h2><strong><%= @user.first_name %></strong></h2>
       <p><%= @user.about %></p>
     </div>
-    <div class="row justify-content-center">
+    <div class="d-flex justify-content-center">
         <div class="mr-3 text-center">
           <h3><strong><%= @user.following.count %></h3></strong>
           <h6>Seguindo</h6>
@@ -95,6 +97,5 @@
     <% end %>
   </ul>
 
+
 </div>
-
-
