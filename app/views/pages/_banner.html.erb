@@ -1,7 +1,14 @@
-<div class="banner">
-  <div class="container">
-    <h3>Que café você quer tomar?</h3>
-    <h3><%#= link_to 'Cafés da Região do Norte Pioneiro do Paraná', category_path('norte pioneiro do paraná') %></h3>
-    <%= render 'shared/search' %>
+<div class="banner mt-0">
+  <div class="container mt-0">
+  <% if user_signed_in?  %>
+    <h2>Olá, <%= @user.first_name %></h2>
+  <% else %>
+    <h3>ALTERAR</h3>
+  <% end  %>
+  <br>
+  <br>
+  <br>
+    <h5>Sugestão do dia:</h5>
+    <h3><%= link_to 'Cafés do Norte Pioneiro do Paraná', category_path('norte pioneiro do paraná') %></h3>
   </div>
 </div>

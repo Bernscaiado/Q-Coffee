@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @coffees = Coffee.where(user_id: @user)
     @reviews = Review.where(user_id: @user)
     @likes = Like.where(user_id: @user)
-  end
+  end 
 
   def edit
     current_user

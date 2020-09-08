@@ -4,24 +4,29 @@
     <%= link_to image_tag('home.png', style:"width: 30px;"), root_path %>
     </a>
   </li>
-  <li class="nav-item">
+  <%# <li class="nav-item">
     <a class="navbar-brand" href="#">
     <% if current_user.present? %>
-      <%= link_to image_tag('heart.png', style:"width: 30px;"), liked_coffees_path(current_user) %>
-    <% else %>
-      <%= link_to image_tag('heart.png', style:"width: 30px;"), new_user_session_path %>
-    <% end %>
-    </a>
-  </li>
+      <%#= link_to image_tag('heart.png', style:"width: 30px;"), liked_coffees_path(current_user) %>
+    <%# <% else %>
+      <%#= link_to image_tag('heart.png', style:"width: 30px;"), new_user_session_path %>
+    <%# <% end %>
+    <%# </a> %>
+  <%# </li> %>
     <li class="nav-item">
     <a class="navbar-brand" href="#">
     <%= link_to image_tag('coffee.png', style:"width: 30px;"), coffees_path %>
     </a>
   </li>
+     <li class="nav-item">
+    <a class="navbar-brand" href="#">
+    <%= link_to image_tag('camera.png', style:"width: 30px;"), coffees_path %>
+    </a>
+  </li>
     </li>
     <li class="nav-item">
     <a class="navbar-brand" href="#">
-    <%= link_to image_tag('search.png', style:"width: 30px;"), coffee_map_path %>
+    <%= link_to image_tag('map.png', style:"width: 30px;"), coffee_map_path %>
     </a>
   </li>
   <li class="nav-item">
