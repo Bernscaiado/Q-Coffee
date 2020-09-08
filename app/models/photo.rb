@@ -1,14 +1,14 @@
+
+require "google/cloud/vision"
+
 class Photo < ApplicationRecord
   has_one_attached :photo
 
-
   def self.detect_text(photo)
-    require "google/cloud/vision"
-    require 'uri'
 
     image_annotator = Google::Cloud::Vision.image_annotator
 
-    file_name = photo.photo.service_url
+    file_name = Cloudinary::Utils.cloudinary_url(photo.photo.key)
 
     response = image_annotator.text_detection(
       image: file_name,
