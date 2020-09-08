@@ -1,0 +1,13 @@
+<div class= "container-cards">
+  <% coffees_categories = [] %>
+    <% @category_sensory.each do |coffee| %>
+    <%= link_to category_path(coffee) do %>
+      <div class="card-category w-100" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1516011762365-b3ae4a895b51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)">
+        <% if not coffees_categories.include?(coffee) %>
+          <p><%= "Perfil #{coffee}" %></p>
+          <% coffees_categories << coffee %>
+        <% end %>
+      </div>
+      <% end %>
+      <% end %>
+</div>
