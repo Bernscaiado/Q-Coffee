@@ -95,7 +95,8 @@ class CoffeesController < ApplicationController
     params.require(:coffee).permit(:name, :brand,
                                    :farm, :roast, :sensory,
                                    :origin_id, :taste,
-                                   :address)
+                                   :address,
+                                   :photo)
   end
 
   def set_coffee
