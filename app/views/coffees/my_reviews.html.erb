@@ -21,13 +21,13 @@
             <div class="row justify-content-around">
               <p>
               <% review.rating.times do %>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star", style="color: #fece02;"></i>
               <% end %>
               <% (5- review.rating).times do %>
-                <i class="far fa-star"></i>
+                 <i class="fas fa-star", style="color: #fece02;"></i>
               <% end %>
               <br>
-              <p><i class='fas fa-thumbs-up'></i> <%= review.review_likes.count %></p>
+              <p><i class="fas fa-thumbs-up", style="color: #9a2a19;"></i> <%= review.review_likes.count %></p>
               </p>
             </div>
           </div>
