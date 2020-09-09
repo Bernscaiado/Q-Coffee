@@ -5,7 +5,7 @@
 <div class="container-ocr">
 <h1>Posicione aqui o rótulo do café</h1>
   <%= simple_form_for @photo do |f| %>
-    <%= f.input :photo,  as: :file %>
+    <%= f.input :photo, label: ".", as: :file %>
     <%= f.button :submit, "Processar Foto", class:"btn-ghost" %>
   <% end %>
 </div>
