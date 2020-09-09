@@ -1,37 +1,22 @@
-<div class="head-coffees">
- <h4>Cafés</h4>
-</div>
-
 <div class="container mt-3">
   <% if @coffees.empty? %>
-
-  <h3> Não existem cafés cadastrados</h3>
-  <%= link_to "Cadastrar cafe", new_coffee_path, :class => "btn-ghost", :method => :get %>
+    <h3> Não existem cafés cadastrados</h3>
+    <%= link_to "Cadastrar cafe", new_coffee_path, :class => "btn-ghost", :method => :get %>
   <% else %>
-  <% @coffees.each do |coffee| %>
-
-
-  <div class="container">
-    <div class="card-review">
-      <div class="row justify-content-between mx-1">
-      <p>
-        <%= link_to coffee.name, coffee_path(coffee), style:"color: grey;"  %>
-      </p>
-
-        <p>
-        <%= coffee.brand %>
-        </p>
+    <% @coffees.each do |coffee| %>
+      <div class="card-product mt-3">
+        <img src="https://images.unsplash.com/photo-1512372388054-a322888e67a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
+          <div class="card-product-infos">
+            <h4><strong><%= link_to coffee.name, coffee_path(coffee) %></strong></h4>
+            <h6><%= coffee.brand %></h6>
+          </div>
+        <% if user_signed_in? && coffee.user_id == current_user.id %>
+        <div class="icon">
+          <%= link_to image_tag('edit.png', style:"width: 28px;"), edit_coffee_path(coffee)  %>
+          <%= link_to image_tag('delete.png', style:"width: 25px;"), coffee_path(coffee), method: :delete  %>
+        </div>
+        <% end %>
       </div>
-      <% if user_signed_in? && coffee.user_id == current_user.id %>
-        <%= link_to image_tag('edit.png', style:"width: 28px;"), edit_coffee_path(coffee)  %>
-        <%= link_to image_tag('delete.png', style:"width: 25px;"), coffee_path(coffee), method: :delete  %>
     <% end %>
-
-    </div>
-  </div>
-
-
-
   <% end %>
-<% end %>
 </div>

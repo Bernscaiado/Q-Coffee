@@ -1,7 +1,7 @@
 .card-product {
   overflow: hidden;
   height: 110px;
-  background: #F0EFEF;
+  background: #ebe9e96e;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -12,6 +12,7 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .card-product h2 {
@@ -38,4 +39,11 @@
   text-decoration: none;
   color: #D49536;
 }
+
+
+.container-coffees h6 {
+  text-decoration: none;
+  color: black;
+}
+
 
