@@ -3,7 +3,6 @@
   <h3> Não existem cafés cadastrados</h3>
   <%= link_to 'Cadastrar cafe', new_coffee_path%>
 <% else %>
-  <h3>Cafés cadastrados</h3>
   <% @coffees.each do |coffee| %>
 
 

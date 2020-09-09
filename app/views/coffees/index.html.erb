@@ -1,12 +1,16 @@
-<div class="container-coffees">
-  <%= render 'shared/search' %>
+<div class="head-coffees">
+  <h4>Cafés</h4>
+</div>
 
+<%= render 'shared/search' %>
+<div class="container-coffees ml-2">
   <% @coffees.each do |coffee| %>
     <div class="card-product mt-3">
       <img src="https://images.unsplash.com/photo-1512372388054-a322888e67a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
         <div class="card-product-infos">
-            <h3><%= link_to coffee.name, coffee_path(coffee) %></h3>
+            <h4><strong><%= link_to coffee.name, coffee_path(coffee) %></strong></h4>
             <h6><%= coffee.brand %></h6>
+            <h6><%= coffee.sensory %>, <%= coffee.taste %></h6>
         </div>
     </div>
   <% end %>

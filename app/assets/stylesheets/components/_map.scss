@@ -2,7 +2,19 @@
     max-width: 200px;
   }
   
-  .mapboxgl-popup-content {
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-  }
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+}
+
+.infowindow h4 {
+  color: black !important;
+}
+
+.infowindow a {
+  color: white !important;
+  background-color: #d29233;
+  padding: 8px;
+  border-radius: 20px;
+}
