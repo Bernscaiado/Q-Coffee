@@ -11,8 +11,8 @@
      <% else %>
        <%= image_tag "coffee-pack.png",style:"width: 150px; height: 150px; crop: :fill"%>
      <% end %>
-        <div class="card-product-infos">
-            <h4><strong><%= link_to coffee.name, coffee_path(coffee) %></strong></h4>
+        <div class="card-product-infos mt-3">
+            <h5><strong><%= link_to coffee.name, coffee_path(coffee) %></strong></h5>
             <h6><%= coffee.brand %></h6>
             <h6><%= coffee.sensory %>, <%= coffee.taste %></h6>
         </div>
