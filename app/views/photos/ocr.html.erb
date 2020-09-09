@@ -1,4 +1,12 @@
-<%= simple_form_for @photo do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, "Processar Foto", class:"btn-ghost" %>
-<% end %>
+<div class="head-ocr">
+  <h4>Tirar foto</h4>
+</div>
+
+<div class="container-ocr">
+  <%= simple_form_for @photo do |f| %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "Processar Foto", class:"btn-ghost" %>
+  <% end %>
+</div>
+
+
