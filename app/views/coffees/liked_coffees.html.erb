@@ -1,21 +1,20 @@
-<div class="container bg-white pt-4 ">
-  <div class="card">
-    <ul class="list-group">
+<div class="head-favorites">
+  <h4>Favoritos</h4>
+</div>
 
-      <% if @likes.empty? %>
-        <% if @user == current_user %>
-          <h6>Você ainda não tem cafés favoritados</h6>
-        <% else %>
-          <h6><%= @user.first_name %> ainda não tem cafés favoritos</h6>
-        <% end %>
-      <% else %>
-        <% @likes.each do |like| %>
-          <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
-            <%= link_to like.coffee.name, coffee_path(like.coffee), style:"color: grey; &:hover: black;" %>
-            <%= like.coffee.brand %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
+<div class="container-coffees ml-2">
+  <% @likes.each do |like| %>
+    <div class="card-product mt-3">
+      <% if like.coffee.photo.attached? %>
+        <%= cl_image_tag like.coffee.photo.key, style:"width: 150px; height: 150px; crop: :fill" %>
+     <% else %>
+       <%= image_tag "coffee-pack.png",style:"width: 150px; height: 150px; crop: :fill"%>
+     <% end %>
+        <div class="card-product-infos">
+            <h4><strong><%= link_to like.coffee.name, coffee_path(like.coffee) %></strong></h4>
+            <h6><%= like.coffee.brand %></h6>
+            <h6><%= like.coffee.sensory %>, <%= like.coffee.taste %></h6>
+        </div>
+    </div>
+  <% end %>
 </div>
