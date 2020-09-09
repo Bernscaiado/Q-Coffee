@@ -21,7 +21,7 @@
           <h6>Seguindo</h6>
         </div>
         <div class="ml-3 text-center">
-          <h3><strong><%= @user.followers.count %></h3></strong> 
+          <h3><strong><%= @user.followers.count %></h3></strong>
           <h6>Seguidores</h6>
         </div>
     </div>
@@ -29,22 +29,24 @@
 
 
   <ul class="list-group">
+    <div class="d-flex justify-content-center">
 
     <% if user_signed_in? %>
       <% unless current_user == @user %>
         <div>
           <% if @user.followers.exists? current_user.id %>
-            <li  id="unfollow" class="list-group-item d-flex justify-content-between align-items-center borderless">
-              <%= link_to "Deixar de seguir", unfollow_user_path, method: :post %>
+            <li  id="unfollow" class="mt-2">
+              <%= link_to "Seguindo", unfollow_user_path, method: :post, class:'btn btn-ghost-follow' %>
             </li>
           <% else %>
-            <li  id="follow" class="list-group-item d-flex justify-content-between align-items-center">
-              <%= link_to "Seguir", follow_user_path, method: :post %>
+            <li  id="follow" class="mt-2">
+              <%= link_to "Seguir", follow_user_path, method: :post, class:'btn btn-ghost-follow' %>
             </li>
           <% end %>
         </div>
       <% end %>
     <% end %>
+    </div>
 
     <li class="list-group-item d-flex justify-content-between align-items-center borderless mt-3">
       <%= link_to my_coffees_path(@user) do %>
