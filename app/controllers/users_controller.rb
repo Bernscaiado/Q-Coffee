@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @coffees = Coffee.where(user_id: @user)
     @reviews = Review.where(user_id: @user)
     @likes = Like.where(user_id: @user)
-  end 
+  end
 
   def edit
     current_user
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :about)
+    params.require(:user).permit(:first_name, :about, :photo)
   end
 
   def set_user
