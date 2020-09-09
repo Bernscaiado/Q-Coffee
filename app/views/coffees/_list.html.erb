@@ -11,9 +11,11 @@
             <h6><%= coffee.brand %></h6>
           </div>
         <% if user_signed_in? && coffee.user_id == current_user.id %>
-        <div class="icon">
+        <div class="container">
+        <div class="icon row">
           <%= link_to image_tag('edit.png', style:"width: 28px;"), edit_coffee_path(coffee)  %>
           <%= link_to image_tag('delete.png', style:"width: 25px;"), coffee_path(coffee), method: :delete  %>
+        </div>
         </div>
         <% end %>
       </div>
