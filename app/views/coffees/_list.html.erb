@@ -1,8 +1,13 @@
+<div class="head-coffees">
+ <h4>Cafés</h4>
+</div>
+
 <div class="container mt-3">
-<% if @coffees.empty? %>
+  <% if @coffees.empty? %>
+
   <h3> Não existem cafés cadastrados</h3>
-  <%= link_to 'Cadastrar cafe', new_coffee_path%>
-<% else %>
+  <%= link_to "Cadastrar cafe", new_coffee_path, :class => "btn-ghost", :method => :get %>
+  <% else %>
   <% @coffees.each do |coffee| %>
 
 
