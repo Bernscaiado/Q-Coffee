@@ -51,7 +51,13 @@
     <li class="list-group-item d-flex justify-content-between align-items-center borderless mt-3">
       <%= link_to my_coffees_path(@user) do %>
         <%= image_tag('copo-cafe.png', style:"width: 30px;")%>
-        Meus cafés
+          <% if user_signed_in? %>
+            <% if current_user == @user %>
+              Meus cafés
+            <% else %>
+              Cafés
+            <%end %>
+          <%end%>
       <% end %>
         <%= @coffees.count%>
     </li>
@@ -59,7 +65,13 @@
     <li class="list-group-item d-flex justify-content-between align-items-center borderless">
       <%= link_to my_reviews_path(@user) do %>
         <%= image_tag('review.png', style:"width: 30px;")%>
-        Minhas reviews
+        <% if user_signed_in? %>
+            <% if current_user == @user %>
+              Minhas reviews
+            <% else %>
+              Reviews
+            <%end %>
+          <%end%>
       <% end %>
         <%= @reviews.count%>
     </li>
@@ -67,7 +79,13 @@
     <li class="list-group-item d-flex justify-content-between align-items-center borderless">
       <%= link_to liked_coffees_path(@user) do %>
         <%= image_tag('grao.png', style:"width: 30px;")%>
-        Meus favoritos
+        <% if user_signed_in? %>
+            <% if current_user == @user %>
+              Meus favoritos
+            <% else %>
+              Favoritos
+            <%end %>
+          <%end%>
       <% end %>
         <%= @likes.count%>
     </li>
