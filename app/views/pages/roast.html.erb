@@ -1,13 +1,10 @@
 <div class= "container-cards">
-  <% coffees_categories = [] %>
-  <% @category_roast.each do |coffee| %>
-  <%= link_to category_path(coffee) do %>
+  <% @selection.each_with_index do |select, index| %>
+    <%= "Torra #{@category_roast[index]}"%>
     <div class="card-category w-100" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1493606278519-11aa9f86e40a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)">
-      <% if not coffees_categories.include?(coffee) %>
-      <p ><%= "Torra #{coffee}" %></p>
-      <% coffees_categories << coffee %>
+      <% select[0..2].each do |cafe|%>
+       <p><%= link_to cafe.name, cafe %></p>
       <% end %>
     </div>
-  <% end %>
   <% end %>
 </div>
