@@ -7,19 +7,22 @@
 <div class= "container-cards-main my-0">
   <%= link_to roast_path do %>
     <div class="card-category-main">
-    <%= image_tag('fire.png', style:"width: 70px;") %>
+      <%= image_tag('fire.png', style:"width: 70px; margin-top: 20px;") %>
+      <p style="margin-top: 10px;">Torra</p>
     </div>
   <% end %>
 
   <%= link_to sensory_path do %>
     <div class="card-category-main">
+      <%= image_tag('sensory.png', style:"width: 70px; margin-top: 20px;") %>
       <p> Perfil sensorial </p>
     </div>
   <% end %>
 
   <%= link_to taste_path do %>
     <div class="card-category-main">
-      <%= image_tag('taste.png', style:"width: 100px;") %>
+      <%= image_tag('taste.png', style:"width: 90px; margin-top: 20px;") %>
+      <p>Sabor</p>
     </div>
   <% end %>
 </div>
