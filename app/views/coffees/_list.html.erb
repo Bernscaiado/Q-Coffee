@@ -1,6 +1,7 @@
 <div class="container mt-3">
 <% if @coffees.empty? %>
   <h3> Não existem cafés cadastrados</h3>
+  <%= link_to 'Cadastrar cafe', new_coffee_path%>
 <% else %>
   <% @coffees.each do |coffee| %>
 
