@@ -3,8 +3,11 @@
   <head>
 
     <title>Q-Coffee - Encontre o melhor café</title>
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+  
+    
 
     <% if content_for?(:head) %>
       <%= yield(:head) %>
@@ -21,7 +24,7 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
+  
   <body>
     <%= render 'shared/flashes' %>
     <div>
