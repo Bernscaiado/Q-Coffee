@@ -7,7 +7,7 @@ const initGeocoder = () => {
     mapboxgl.accessToken = input.dataset.mapboxApiKey;
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
-      types: 'country,region,place,postcode,locality,neighborhood, poi',
+      // types: 'country,region,place,postcode,locality,neighborhood,poi',
       countries: 'br'
     });
      
