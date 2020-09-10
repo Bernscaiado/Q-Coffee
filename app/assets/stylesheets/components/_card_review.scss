@@ -1,6 +1,6 @@
 .card-review {
   background: #ebe9e96e;
-  padding: 20px 20px;
+  padding: 30px 20px 20px 20px;
   margin-top: 20px;
 }
 
@@ -9,6 +9,13 @@
   font-weight: bold;
   font-size: 15px;
 }
+
+.card-top {
+  display: flex;
+  align-items: center;
+}
+
+
 
 .row a {
   margin-left: 20px;
