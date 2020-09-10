@@ -8,7 +8,6 @@ const fitMapToMarkers = (map, markers) => {
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-console.log(mapElement)
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
