@@ -53,7 +53,7 @@
           <li>Torra: <%= @coffee.roast %></li>
           <li>Perfil sensorial: <%= @coffee.sensory %></li>
           <li>Gosto predominante: <%= @coffee.taste %></li>
-          <li>Onde encontrar: <%= @coffee.address %></li>
+          <li>Onde encontrar: <%= @coffee.store %> - <%= @coffee.address %></li>
           <li>Adicionado por: <strong><%= link_to @coffee.user.first_name, user_path(@coffee.user), style:"color: black; margin-left: 0px;" %></strong></li>
         </ul>
       </div>
