@@ -1,11 +1,11 @@
 <div class="social-icons">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://qcoffee.app" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=<%= coffee_url(@coffee) %>" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener">
     <%= image_tag "facebook-icon-color.svg", class:'social-icon'%>
   </a>
-  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-text="Da uma olhada nesse cafe" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener" data-show-count="false">
+  <a href="https://twitter.com/share?ref_src=<%= coffee_url(@coffee) %>" data-text="Da uma olhada nesse cafe" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener" data-show-count="false">
     <%= image_tag "twitter-icon-color.svg", class:'social-icon'%>
   </a>
-  <a alt="Whatsapp" href="whatsapp://send?text=https://www.qcoffee.app/" data-text="Da uma olhada nesse cafe" data-href="https://www.qcoffee.app/" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener">
+  <a alt="Whatsapp" href="whatsapp://send?text=<%= coffee_url(@coffee) %>" data-text="Da uma olhada nesse cafe" data-href="https://www.qcoffee.app/" class="social-circle-link-2 w-inline-block" target="_blank" rel="noopener">
     <%= image_tag "whatsapp.png", class:'social-icon', style:"width: 15px;"%>
   </a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
    <script type="text/javascript">
