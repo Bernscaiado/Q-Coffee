@@ -28,6 +28,7 @@ class CoffeesController < ApplicationController
   def create
     @coffee = Coffee.new(coffee_params)
     @coffee.user = current_user
+    @coffee.address = params[:coffee][:address]
     if @coffee.save
       redirect_to coffee_path(@coffee)
     else
@@ -95,7 +96,6 @@ class CoffeesController < ApplicationController
     params.require(:coffee).permit(:name, :brand,
                                    :farm, :roast, :sensory,
                                    :origin_id, :taste,
-                                   :address,
                                    :photo)
   end
 

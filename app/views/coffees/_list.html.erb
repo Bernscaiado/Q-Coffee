@@ -1,7 +1,7 @@
-<div class="container mt-3">
+<div class="container mt-10">
   <% if @coffees.empty? %>
-    <h3> Não existem cafés cadastrados</h3>
-    <%= link_to "Cadastrar cafe", new_coffee_path, :class => "btn-ghost", :method => :get %>
+    <h3 style='margin: 200px 10px 10px 10px; text-align: center;'> Não existem cafés cadastrados</h3>
+    <%= link_to "Cadastrar cafe", new_coffee_path, :class => "btn-ghost-ocr", :method => :get %>
   <% else %>
     <% @coffees.each do |coffee| %>
       <div class="card-product mt-3">
