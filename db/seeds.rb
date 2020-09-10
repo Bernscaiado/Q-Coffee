@@ -37,6 +37,11 @@ review = ['Muito bom', 'Café sensacional', 'Não gostei, muito amargo',
 nome_cafe = ['Melita sabor da fazenda', 'Honey da bahia', 'Santa Mônica',
              'Café do Centro', 'Spot Coffee', 'Café do Joselino', 'Café Capadocia',
              'Café do Pato Rei', 'Fuckoffee']
+store = ['Coffee Lab', 'Por um Punhado de Dólares', 'Cafeteria Grão', 'Hey Coffee', 'Café da Praça',
+          'Baden Torrefação', 'Soul Café', 'Cupping Café', 'Bento 43 Café']
+address = ['Rua Fradique Coutinho, 1430', 'Rua Dom José de Barros, 152', 'Rua Nestor Pestana, 115',
+            'Rua Augusta, 1524', 'Rua Wisard, 171', 'Rua Bento Freitas, 306',
+            'Rua Júlio Conceição, 553', 'Rua Antônio Carlos, 404', 'Rua Oscar Freire, 2286']
 
 b = User.find_by(first_name: name.sample)
   nome_cafe.each do |nome|
@@ -49,6 +54,8 @@ b = User.find_by(first_name: name.sample)
     origin_id: a.id,
     roast: roast.sample,
     farm: Faker::Team.name,
+    store: store.sample,
+    address: address.sample,
     user: b)
   5.times do
       b = User.find_by(first_name: name.sample)
