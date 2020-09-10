@@ -8,6 +8,9 @@ class ReviewsController < ApplicationController
     @reviews = Review.where(params[:coffee_id])
   end
 
+  def info_window
+  end
+
   def show
   end
 

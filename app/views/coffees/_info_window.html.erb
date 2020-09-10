@@ -1,7 +1,11 @@
-<div class="container">
-  <div class="infowindow">
-    <h4><%= coffee.name %></h4>
-    <p><%= coffee.address %></p>
-      <h6><%= link_to 'Conheça este café', coffee_path(coffee), style:'text-decoration: none; color:white;' %></h6>
-  </div>
+
+<div class="infowindow">
+  <h6><strong>Café <%= coffee.name %></strong></h6>
+  <p><%= coffee.address %></p>
+  <% if coffee.photo.attached? %>
+    <%= cl_image_tag coffee.photo.key, id:"coffee-label", style:"width: 100px; height: 100px; crop: :fill" %>
+  <% else %>
+    <%= image_tag "coffee-pack.png", id:"coffee-label", style:"width: 100px; height: 100px; margin-left: 10px;"%>
+  <% end %>
+  <h6><%#= link_to 'Conheça este café', coffee_path(coffee), class: 'btn-ghost-map', style:'text-decoration: none; color:white;' %></h6>
 </div>

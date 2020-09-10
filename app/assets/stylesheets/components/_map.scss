@@ -1,20 +1,18 @@
 .mapboxgl-popup {
-    max-width: 200px;
-  }
+  max-width: 200px;
+}
   
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: black;
+  height: 100px;
+  padding: 20px;
+  width: 300%;
 }
 
 .infowindow h4 {
   color: black !important;
 }
 
-.infowindow a {
-  color: white !important;
-  background-color: #d29233;
-  padding: 8px;
-  border-radius: 20px;
-}
+

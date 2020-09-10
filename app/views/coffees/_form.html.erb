@@ -14,7 +14,9 @@
           <%= f.input :photo, as: :file, label: 'Adicinar foto' %>
           <%#= f.input :address, label: 'Onde encontrar', input_html: {data: { 'mapbox-api-key': ENV['MAPBOX_API_KEY'] }} %>
           <div id='coffee_address' data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          <p>Onde encontrar</p>
           </div>
+          <br>
           <%= f.button :submit, "Adicionar café", class:"btn-ghost" %>
         <% end %>
       </div>
