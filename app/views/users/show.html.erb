@@ -40,11 +40,11 @@
         <div>
           <% if @user.followers.exists? current_user.id %>
             <li  id="unfollow" class="mt-2">
-              <%= link_to "Seguindo", unfollow_user_path, method: :post, class:'btn btn-ghost-follow' %>
+              <%= link_to "Seguindo", unfollow_user_path, method: :post, remote: :true, class:'btn btn-ghost-follow' %>
             </li>
           <% else %>
             <li  id="follow" class="mt-2">
-              <%= link_to "Seguir", follow_user_path, method: :post, class:'btn btn-ghost-follow' %>
+              <%= link_to "Seguir", follow_user_path, method: :post, remote: :true, class:'btn btn-ghost-follow' %>
             </li>
           <% end %>
         </div>
