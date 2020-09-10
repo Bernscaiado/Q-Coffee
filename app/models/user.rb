@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :review_likes
 
+  has_one_attached :photo
+
   has_many :follower_relationships, foreign_key: :following_id, class_name: 'Follow'
   has_many :followers, through: :follower_relationships, source: :follower
 
