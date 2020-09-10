@@ -50,7 +50,7 @@
           <li>Perfil sensorial: <%= @coffee.sensory %></li>
           <li>Gosto predominante: <%= @coffee.taste %></li>
           <li>Onde encontrar: <%= @coffee.address %></li>
-          <li><strong><%= link_to @coffee.user.first_name.capitalize, user_path(@coffee.user), style:"color: black; margin-left: 0px;" %></strong></li>
+          <li>Adicionado por: <strong><%= link_to @coffee.user.first_name, user_path(@coffee.user), style:"color: black; margin-left: 0px;" %></strong></li>
         </ul>
       </div>
 
