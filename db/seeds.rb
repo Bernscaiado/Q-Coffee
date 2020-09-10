@@ -41,7 +41,7 @@ store = ['Coffee Lab', 'Por um Punhado de Dólares', 'Cafeteria Grão', 'Hey Cof
           'Baden Torrefação', 'Soul Café', 'Cupping Café', 'Bento 43 Café']
 address = ['Rua Fradique Coutinho, 1430', 'Rua Dom José de Barros, 152', 'Rua Nestor Pestana, 115',
             'Rua Augusta, 1524', 'Rua Wisard, 171', 'Rua Bento Freitas, 306',
-            'Rua Júlio Conceição, 553', 'Rua Antônio Carlos, 404', 'Rua Oscar Freire, 2286']
+            'Rua Júlio Conceição, 553', 'Avenida Paulista, 1001', 'Rua Oscar Freire, 2286']
 
 b = User.find_by(first_name: name.sample)
   nome_cafe.each do |nome|
