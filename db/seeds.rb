@@ -54,6 +54,8 @@ b = User.find_by(first_name: name.sample)
     origin_id: a.id,
     roast: roast.sample,
     farm: Faker::Team.name,
+    store: store.sample,
+    address: address.sample,
     user: b)
   5.times do
       b = User.find_by(first_name: name.sample)
