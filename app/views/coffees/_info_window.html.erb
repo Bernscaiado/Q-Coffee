@@ -1,7 +1,7 @@
-
 <div class="infowindow">
   <h6><strong>Café <%= coffee.name %></strong></h6>
   <p><%= coffee.address %></p>
+
   <% if coffee.photo.attached? %>
     <%= cl_image_tag coffee.photo.key, id:"coffee-label", style:"width: 100px; height: 100px; crop: :fill" %>
   <% else %>
