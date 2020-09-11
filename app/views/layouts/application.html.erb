@@ -7,8 +7,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
   
-    
-
     <% if content_for?(:head) %>
       <%= yield(:head) %>
     <% else %>
@@ -16,9 +14,12 @@
       <meta property="og:type"          content="website" />
       <meta property="og:title"         content="Q-Coffee" />
       <meta property="og:description"   content="Descubra seu cafe" />
-      <meta property="og:image"         content="<%= image_path 'og_image.png' %>" />
-    <% end %>
+      <meta property="og:image"         content="<%= image_path 'og_image.png'%>" />
+      <meta property="og:image:width"   content="1200" />
+      <meta property="og:image:height"  content="630" />
 
+    <% end %>
+    
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
